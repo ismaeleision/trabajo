@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CrudService } from './../service/crud.service';
 
 @Component({
   selector: 'app-carta',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CartaComponent implements OnInit {
 
-  constructor() { }
+  Cartas:any = [];
+
+  constructor(private crudService: CrudService) { }
 
   ngOnInit(): void {
+    this.crudService.GetCartas().subscribe(res => {
+      console.log(res)
+      this.Cartas =res;
+    });    
   }
 
 }

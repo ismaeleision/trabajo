@@ -18,11 +18,11 @@ export class CrudService {
   constructor(private httpClient: HttpClient) {}
   // Get all objects
   GetCartas() {
-    return this.httpClient.get(`${this.REST_API}`);
+    return this.httpClient.get(`${this.REST_API}/carta`);
   }
   // Get single object
   GetCarta(id: any): Observable<any> {
-    let API_URL = `${this.REST_API}/read-Carta/${id}`;
+    let API_URL = `${this.REST_API}/carta/id/${id}`;
     return this.httpClient.get(API_URL, { headers: this.httpHeaders }).pipe(
       map((res: any) => {
         return res || {};
