@@ -15,6 +15,7 @@ export class LoginComponent {
   login() {
     const user = {email: this.email, password: this.password};
     this.crudService.login(user).subscribe( data => {
+      //data es el token jwt
       console.log(data);
     });
   }

@@ -8,8 +8,6 @@ import { CrudService } from '../service/crud.service';
 })
 export class RegisterComponent implements OnInit {
 
-  name: String ="";
-  lastname: String = "";
   email: String = "";
   password: String = "";
 
@@ -20,9 +18,11 @@ export class RegisterComponent implements OnInit {
   }
 
   register() {
-    const user = {email: this.email, password: this.password};
-    this.crudService.login(user).subscribe( data => {
+    const email= this.email;
+    const password= this.password;
+    this.crudService.register(email, password).subscribe(data =>{
       console.log(data);
+      console.log("registro completado");
     });
   }
 }

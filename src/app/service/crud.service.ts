@@ -23,6 +23,11 @@ export class CrudService {
       return this.httpClient.post(`${this.REST_API}/login`, user);
     }
 
+    //Registro
+    register(email: String, password: String){
+      return this.httpClient.post(`${this.REST_API}/register`, {email, password});
+    }
+
   // Toma las cartas de la api
   GetCartas(page: any) {
     return this.httpClient.get(`${this.REST_API}/carta/page/${page}`);
