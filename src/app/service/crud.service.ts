@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Carta } from './Carta';
+import { User } from './User';
 import { catchError, map } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
 import {
@@ -16,11 +17,17 @@ export class CrudService {
   // Http Header
   httpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
   constructor(private httpClient: HttpClient) {}
-  // Get all objects
+
+  //Login, 
+    login(user: User): Observable<any> {
+      return this.httpClient.post(`${this.REST_API}/login`, user);
+    }
+
+  // Toma las cartas de la api
   GetCartas() {
-    return this.httpClient.get(`${this.REST_API}/carta`);
+    return this.httpClient.get(`${this.REST_API}/carta/page/1`);
   }
-  // Get single object
+  // Coge una carta que coincida con su id
   GetCarta(id: any): Observable<any> {
     let API_URL = `${this.REST_API}/carta/id/${id}`;
     return this.httpClient.get(API_URL, { headers: this.httpHeaders }).pipe(

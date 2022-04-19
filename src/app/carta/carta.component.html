@@ -9,7 +9,7 @@
           <!--Falla no esta cogiendo bien el id o algo asi-->
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#'+carta.set"
             aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-            <img src="{{carta.image_uris.normal}}" class="card-img-top">
+            <img *ngIf="carta.image_uris" src="{{carta.image_uris.normal}}" class="card-img-top">
           </button>
           <div class="collapse navbar-collapse  w-auto bg-opacity-75 rounded-3 " id="{{carta.set}}">
             <div class="navbar-nav me-auto mb-2 mb-md-0 p-3">

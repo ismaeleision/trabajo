@@ -1,0 +1,16 @@
+<div class="container-fluid text-center">
+  <div class="row">
+    <form class="custom-form" method="post">
+      <h1>Login</h1>
+      <div class="col">
+        <input class="form-control" type="email" [(ngModel)]="email" name="email" placeholder="Email" required="required" />
+      </div>
+      <div class="col">
+        <input class="form-control" type="password" [(ngModel)]="password" name="password" placeholder="Password" required="required" />
+      </div>
+      <div class="col">
+        <button class="btn btn-success" type="submit" (click)="login()">Log in</button>
+      </div>
+    </form>
+  </div>
+</div>

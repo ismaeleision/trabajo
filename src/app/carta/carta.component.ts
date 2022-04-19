@@ -14,8 +14,7 @@ export class CartaComponent implements OnInit {
 
   ngOnInit(): void {
     this.crudService.GetCartas().subscribe(res => {
-      console.log(res)
-      this.Cartas =res;
+      this.Cartas = res;
     });    
   }
 
