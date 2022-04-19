@@ -1,4 +1,5 @@
 <div class="bg-dark">
+  <p *ngIf="sesion" class="text-light">{{sesion.retrieve('usuario')}}</p>
   <button class="btn btn-success" routerLink="/login">Login</button>
   <button class="btn btn-warning" routerLink="/register">Registro</button>
   <button class="btn btn-success" routerLink="/carta">Cartas</button>

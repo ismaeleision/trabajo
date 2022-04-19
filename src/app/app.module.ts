@@ -6,9 +6,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
-import { CartaComponent } from './carta/carta.component';
-import { RegisterComponent } from './register/register.component';
-import { LoginComponent } from './login/login.component';
+import { CartaComponent } from './carta/carta.component';//Carta
+import { RegisterComponent } from './register/register.component';//Registro
+import { LoginComponent } from './login/login.component';//Login
+import {NgxWebstorageModule} from 'ngx-webstorage'; //Sesion-Local Storage
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { LoginComponent } from './login/login.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
+    NgxWebstorageModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]
