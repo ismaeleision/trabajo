@@ -13,7 +13,7 @@ import {
 })
 export class CrudService {
   // Node/Express API
-  REST_API: string = 'http://localhost:3977/api';
+  REST_API: string = 'http://localhost:3977';
   // Http Header
   httpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
   constructor(private httpClient: HttpClient) {}
@@ -24,8 +24,8 @@ export class CrudService {
     }
 
   // Toma las cartas de la api
-  GetCartas() {
-    return this.httpClient.get(`${this.REST_API}/carta/page/1`);
+  GetCartas(page: any) {
+    return this.httpClient.get(`${this.REST_API}/carta/page/${page}`);
   }
   // Coge una carta que coincida con su id
   GetCarta(id: any): Observable<any> {
