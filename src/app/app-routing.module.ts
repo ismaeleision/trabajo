@@ -6,6 +6,7 @@ import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   { path: 'carta', component: CartaComponent },
+  { path: 'carta/page/:page', component: CartaComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent }
 ];
