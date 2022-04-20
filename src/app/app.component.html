@@ -1,7 +1,29 @@
-<div class="bg-dark">
-  <p *ngIf="sesion" class="text-light">{{sesion.retrieve('usuario')}}</p>
-  <button class="btn btn-success" routerLink="/login">Login</button>
-  <button class="btn btn-warning" routerLink="/register">Registro</button>
-  <button class="btn btn-success" routerLink="/carta">Cartas</button>
+<div class="container-fluid bg-dark h-100">
+  <!--Muestra el nombre del usuario guardado en la sesion-->
+  <div class="row " *ngIf="sesion.retrieve('usuario'); else login" class="text-light">
+    <div class="col-1 m-3">
+      {{sesion.retrieve('usuario')}}
+    </div>
+    <button class="btn btn-warning m-3" (click)="deslogueo()">Log Out</button>
+    <div class="row m-5">
+      <button class="btn btn-success mt-5" routerLink="/carta">Cartas</button>
+    </div>
+  </div>
+
+
   <router-outlet></router-outlet>
+  <!--Si no estas logueado te muestra el boton de loguin-->
+  <ng-template #login>
+    <div class="row ">
+      <div class="col-1 mt-5">
+        <button class="btn btn-success" routerLink="/login">Login</button>
+      </div>
+      <div class="col-1 mt-5">
+        <button class="btn btn-warning" routerLink="/register">Registro</button>
+      </div>
+      <div class="col-1">
+        <button class="btn btn-success mt-5" routerLink="/carta">Cartas</button>
+      </div>
+    </div>
+  </ng-template>
 </div>
