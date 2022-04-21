@@ -32,6 +32,7 @@ export class CrudService {
   GetCartas(page: any) {
     return this.httpClient.get(`${this.REST_API}/carta/page/${page}`);
   }
+
   // Coge una carta que coincida con su id
   GetCarta(id: any): Observable<any> {
     let API_URL = `${this.REST_API}/carta/id/${id}`;
@@ -42,6 +43,17 @@ export class CrudService {
       catchError(this.handleError)
     );
   }
+
+  GetCartasTotal(){
+    let API_URL = `${this.REST_API}/carta/total`;
+    return this.httpClient.get(API_URL, { headers: this.httpHeaders }).pipe(
+      map((res: any) => {
+        return res || {};
+      }),
+      catchError(this.handleError)
+    );
+  }
+
     // Error
   handleError(error: HttpErrorResponse) {
     let errorMessage = '';

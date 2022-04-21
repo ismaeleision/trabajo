@@ -9,7 +9,8 @@ import { CrudService } from './../service/crud.service';
 export class CartaComponent implements OnInit {
 
   Cartas:any = [];
-  page:Number = 1;
+  page:number = 1;
+  total:any = [] ;
 
   constructor(private crudService: CrudService) { }
 
@@ -17,6 +18,9 @@ export class CartaComponent implements OnInit {
     this.crudService.GetCartas(this.page).subscribe(res => {
       this.Cartas = res;
     });    
+    this.crudService.GetCartasTotal().subscribe(res =>{
+      this.total = res;
+    });
   }
 
   pagina(num: Number){
