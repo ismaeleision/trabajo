@@ -51,8 +51,18 @@
     Falta que imprima unos pocos y el ultimo, y al ir moviendote que se remarque en el que estas-->
 
   <div class="row">
-    <div class="col" *ngFor="let in of total; let i = index">
-      <button class="btn btn-primary" [routerLink]="['/carta/page', i]" (click)="pagina(i)">{{i}}</button>
+    <div class="col">
+      <button class="btn btn-primary" *ngIf="this.page>0; else limiteInferior" [routerLink]="['/carta/page', this.page-1]"
+        (click)="paginaAnterior()">-</button>
+      <button class="btn btn-primary" *ngIf="this.page<=(total-1); else limiteSuperior" [routerLink]="['/carta/page', this.page+1]" (click)="
+        paginaPosterior()">+</button>
     </div>
+
+    <ng-template #limiteInferior>
+      <button class="btn btn-primary" disabled>-</button>
+    </ng-template>
+    <ng-template #limiteSuperior>
+      <button class="btn btn-primary" disabled>+</button>
+    </ng-template>
   </div>
 </div>
