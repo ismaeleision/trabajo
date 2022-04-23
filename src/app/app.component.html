@@ -1,29 +1,40 @@
-<div class="container-fluid bg-dark h-100">
-  <!--Muestra el nombre del usuario guardado en la sesion-->
-  <div class="row " *ngIf="sesion.retrieve('usuario'); else login" class="text-light">
-    <div class="col-1 m-3">
-      {{sesion.retrieve('usuario')}}
+<div class="bg-dark">
+  <div class="container">
+    <!--Muestra el nombre del usuario guardado en la sesion-->
+    <div class="row " *ngIf="sesion.retrieve('usuario'); else login" class="text-light">
+      <div class="col p-3">
+        Bienvenido {{sesion.retrieve('usuario')}}
+      </div>
+      <div class="row m-5">
+        <!--Te lleva a la visualizacion de cartas-->
+        <div class="col-2">
+          <button class="btn btn-success m-2" routerLink="/carta">Cartas</button>
+        </div>
+        <!--Te lleva a las listas del usuario-->
+        <div class="col-2">
+          <button class="btn btn-warning m-2" routerLink="/user">Listas</button>
+        </div>
+        <!--Cierra sesion-->
+        <div class="col-2">
+          <button class="btn btn-danger m-2" (click)="deslogueo()" routerLink="/">Log Out</button>
+        </div>
+      </div>
     </div>
-    <button class="btn btn-warning m-3" (click)="deslogueo()">Log Out</button>
-    <div class="row m-5">
-      <button class="btn btn-success mt-5" routerLink="/carta">Cartas</button>
-    </div>
+
+
+    <router-outlet></router-outlet>
+    <!--Si no estas logueado te muestra el boton de loguin-->
+    <ng-template #login>
+      <div class="row ">
+        <div class="col-2 mt-5">
+          <button class="btn btn-success" routerLink="/login">Login</button>
+        </div>
+        <div class="col-2 mt-5">
+          <button class="btn btn-warning" routerLink="/register">Registro</button>
+        </div>
+        <div class="col-2">
+          <button class="btn btn-success mt-5" routerLink="/carta">Cartas</button>
+        </div>
+      </div>
+    </ng-template>
   </div>
-
-
-  <router-outlet></router-outlet>
-  <!--Si no estas logueado te muestra el boton de loguin-->
-  <ng-template #login>
-    <div class="row ">
-      <div class="col-1 mt-5">
-        <button class="btn btn-success" routerLink="/login">Login</button>
-      </div>
-      <div class="col-1 mt-5">
-        <button class="btn btn-warning" routerLink="/register">Registro</button>
-      </div>
-      <div class="col-1">
-        <button class="btn btn-success mt-5" routerLink="/carta">Cartas</button>
-      </div>
-    </div>
-  </ng-template>
-</div>
