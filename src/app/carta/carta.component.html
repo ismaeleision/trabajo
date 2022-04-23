@@ -1,7 +1,23 @@
 <div class="container">
   <h1 class="text-light p-5 text- text-center">Cartas</h1>
+
+  <!--Desplegable Sets-->
+  <div class="dropdown">
+    <button class="btn btn-secondary text-light dropdown-toggle" type="button" id="sets" data-bs-toggle="dropdown" aria-expanded="false">
+      Dropdown button
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="sets">
+      <li *ngFor="let set of sets">
+        <button class="dropdown-item text-danger" routerLink="/carta/set/{{set._id.set}}" (click)="CartasSet(set._id.set)">
+          {{set._id.set_name}}
+        </button>
+      </li>
+    </ul>
+  </div>
+
+  <!--Cartas-->
   <div class="row">
-    <div class="col mt-4" *ngFor="let carta of Cartas">
+    <div class="col" *ngFor="let carta of Cartas">
       <nav class="navbar navbar-expand-block">
         <div class="card" style="width: 18rem;">
           <!--Falla no esta cogiendo bien el id o algo asi-->
@@ -52,22 +68,20 @@
 
   <div class="row ">
     <div class="col-10">
-      <button class="btn btn-light text-danger btn-lg m-5" *ngIf="this.page>0; else limiteInferior"
+      <button class="btn btn-light text-danger btn-lg m-4" *ngIf="this.page>0; else limiteInferior"
         [routerLink]="['/carta/page', this.page-1]" (click)="paginaAnterior()">-</button>
     </div>
     <div class="col-2">
-      <button class="btn btn-light text-danger btn-lg m-5" *ngIf="this.page<=(total-1); else limiteSuperior"
+      <button class="btn btn-light text-danger btn-lg m-4" *ngIf="this.page<=(total-1); else limiteSuperior"
         [routerLink]="['/carta/page', this.page+1]" (click)="
         paginaPosterior()">+</button>
     </div>
   </div>
 
   <ng-template #limiteInferior>
-
-    <button class="btn btn-light text-danger btn-lg m-5" disabled>-</button>
-
+    <button class="btn btn-light text-danger btn-lg m-4" disabled>-</button>
   </ng-template>
   <ng-template #limiteSuperior>
-    <button class="btn btn-light text-danger btn-lg m-5" disabled>+</button>
+    <button class="btn btn-light text-danger btn-lg m-4" disabled>+</button>
   </ng-template>
 </div>

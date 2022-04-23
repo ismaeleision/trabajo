@@ -9,9 +9,11 @@ import { User } from './service/User';
 const routes: Routes = [
   { path: 'carta', component: CartaComponent },
   { path: 'carta/page/:page', component: CartaComponent },
+  { path: 'carta/set/:set', component: CartaComponent},
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'user', component: UserComponent},
+  
 ];
 
 @NgModule({

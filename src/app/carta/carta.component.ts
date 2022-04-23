@@ -11,6 +11,7 @@ export class CartaComponent implements OnInit {
   Cartas:any = [];
   page:number = 0;
   total:number =  100;
+  sets:any = [];
 
   constructor(private crudService: CrudService) { }
 
@@ -20,7 +21,9 @@ export class CartaComponent implements OnInit {
     });    
     this.crudService.GetCartasTotal().subscribe(res =>{
       this.total = res.imite;
-      console.log(this.total);
+    });
+    this.crudService.GetSets().subscribe(res =>{
+      this.sets = res;
     });
   }
 
@@ -28,7 +31,7 @@ export class CartaComponent implements OnInit {
     this.page=this.page-1;
     this.crudService.GetCartas(this.page).subscribe(res => {
       this.Cartas = res;
-      console.log(this.page);
+      
     });    
   }
 
@@ -36,7 +39,13 @@ export class CartaComponent implements OnInit {
     this.page=this.page+1;
     this.crudService.GetCartas(this.page).subscribe(res => {
       this.Cartas = res;
-      console.log(this.page);
+     
+    });    
+  }
+
+  CartasSet(nombre:String){
+    this.crudService.CartasSet(nombre).subscribe(res => {
+      this.Cartas = res;
     });    
   }
 }

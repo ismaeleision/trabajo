@@ -54,6 +54,14 @@ export class CrudService {
     );
   }
 
+  GetSets(){
+    return this.httpClient.get(`${this.REST_API}/carta/set`);
+  }
+
+  CartasSet(nombre: String){
+    return this.httpClient.get(`${this.REST_API}/carta/set/`+nombre);
+  }
+
     // Error
   handleError(error: HttpErrorResponse) {
     let errorMessage = '';
