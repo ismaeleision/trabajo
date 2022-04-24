@@ -1,5 +1,5 @@
 <div class="container">
-  <h1 class="text-light p-5 text- text-center">Cartas</h1>
+  <h1 class="text-light p-5 text- text-center">{{setActual}}</h1>
 
   <!--Desplegable Sets-->
   <div class="dropdown">
@@ -8,7 +8,7 @@
     </button>
     <ul class="dropdown-menu" aria-labelledby="sets">
       <li *ngFor="let set of sets">
-        <button class="dropdown-item text-danger" routerLink="/set/{{set._id.set}}" (click)="CartasSet(set._id.set)">
+        <button class="dropdown-item text-danger" routerLink="/set/{{set._id.set}}" (click)="CartasSet(set._id.set, set._id.set_name)">
           {{set._id.set_name}}
         </button>
       </li>
