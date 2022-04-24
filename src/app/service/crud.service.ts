@@ -34,14 +34,8 @@ export class CrudService {
   }
 
   // Coge una carta que coincida con su id
-  GetCarta(id: any): Observable<any> {
-    let API_URL = `${this.REST_API}/carta/id/${id}`;
-    return this.httpClient.get(API_URL, { headers: this.httpHeaders }).pipe(
-      map((res: any) => {
-        return res || {};
-      }),
-      catchError(this.handleError)
-    );
+  GetCarta(id: any) {
+   return this.httpClient.get(`${this.REST_API}/carta/id/${id}`);
   }
 
   GetCartasTotal(){

@@ -1,1 +1,49 @@
-<p>carta-id works!</p>
+<div class="container">
+  <!--Cartas-->
+  <div class="row">
+    <div class="col">
+      <nav class="navbar navbar-expand-block">
+        <div class="card" style="width: 18rem;">
+          <!--Falla no esta cogiendo bien el id o algo asi-->
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#'+Carta.set"
+            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <img *ngIf="Carta.image_uris" src="{{Carta.image_uris.normal}}" class="card-img-top">
+          </button>
+          <div class="collapse navbar-collapse  w-auto bg-opacity-75 rounded-3 " id="{{Carta.set}}">
+            <div class="navbar-nav me-auto mb-2 mb-md-0 p-3">
+              <button class=" btn btn-secondary dropdown-toggle " type=" button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Legalidad
+              </button>
+              <ul class="dropdown-menu p-2 text-center" aria-labelledby="dropdownMenuButton1">
+                <li>Standard ({{Carta.legalities.standard}})</li>
+                <li>Historic ({{Carta.legalities.historic}})</li>
+                <li>Pioneer ({{Carta.legalities.pioneer}})</li>
+                <li>Modern ({{Carta.legalities.modern}})</li>
+                <li>Legacy ({{Carta.legalities.legacy}})</li>
+                <li>Pauper ({{Carta.legalities.pauper}})</li>
+                <li>Vintage ({{Carta.legalities.vintage}})</li>
+                <li>Commander ({{Carta.legalities.commander}})</li>
+              </ul>
+            </div>
+            <div class="card-text shadow mt-3  bg-secondary text-light rounded text-center">
+              {{Carta.set_name}}
+            </div>
+            <div class="card-text shadow mt-3  bg-body  rounded text-center">
+              <p *ngIf="Carta.prices.eur; else precio">Normal
+                {{Carta.prices.eur}}€</p>
+              <p *ngIf="Carta.prices.eur_foil; else precio">Foil
+                {{Carta.prices.eur_foil}}€</p>
+            </div>
+
+            <!--Si el precio es nulo pone un N/A en su lugar-->
+            <ng-template #precio>
+              <p class="card-text shadow bg-body rounded text-center" #precio>N/A</p>
+            </ng-template>
+          </div>
+
+        </div>
+      </nav>
+    </div>
+  </div>
+</div>

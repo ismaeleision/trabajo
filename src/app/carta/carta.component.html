@@ -2,9 +2,9 @@
   <h1 class="text-light p-5 text- text-center">Cartas</h1>
 
   <!--Desplegable Sets-->
-  <div class="dropdown">
+  <div class="dropdown mb-4">
     <button class="btn btn-secondary text-light dropdown-toggle" type="button" id="sets" data-bs-toggle="dropdown" aria-expanded="false">
-      Dropdown button
+      Ediciones
     </button>
     <ul class="dropdown-menu" aria-labelledby="sets">
       <li *ngFor="let set of sets">
@@ -21,43 +21,9 @@
       <nav class="navbar navbar-expand-block">
         <div class="card" style="width: 18rem;">
           <!--Falla no esta cogiendo bien el id o algo asi-->
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#'+carta.set"
-            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <a routerLink="/carta/id/{{carta._id}}">
             <img *ngIf="carta.image_uris" src="{{carta.image_uris.normal}}" class="card-img-top">
-          </button>
-          <div class="collapse navbar-collapse  w-auto bg-opacity-75 rounded-3 " id="{{carta.set}}">
-            <div class="navbar-nav me-auto mb-2 mb-md-0 p-3">
-              <button class=" btn btn-secondary dropdown-toggle " type=" button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                Legalidad
-              </button>
-              <ul class="dropdown-menu p-2 text-center" aria-labelledby="dropdownMenuButton1">
-                <li>Standard ({{carta.legalities.standard}})</li>
-                <li>Historic ({{carta.legalities.historic}})</li>
-                <li>Pioneer ({{carta.legalities.pioneer}})</li>
-                <li>Modern ({{carta.legalities.modern}})</li>
-                <li>Legacy ({{carta.legalities.legacy}})</li>
-                <li>Pauper ({{carta.legalities.pauper}})</li>
-                <li>Vintage ({{carta.legalities.vintage}})</li>
-                <li>Commander ({{carta.legalities.commander}})</li>
-              </ul>
-            </div>
-            <div class="card-text shadow mt-3  bg-secondary text-light rounded text-center">
-              {{carta.set_name}}
-            </div>
-            <div class="card-text shadow mt-3  bg-body  rounded text-center">
-              <p *ngIf="carta.prices.eur; else precio">Normal
-                {{carta.prices.eur}}€</p>
-              <p *ngIf="carta.prices.eur_foil; else precio">Foil
-                {{carta.prices.eur_foil}}€</p>
-            </div>
-
-            <!--Si el precio es nulo pone un N/A en su lugar-->
-            <ng-template #precio>
-              <p class="card-text shadow bg-body rounded text-center" #precio>N/A</p>
-            </ng-template>
-          </div>
-
+          </a>
         </div>
       </nav>
     </div>
