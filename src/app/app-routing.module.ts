@@ -4,12 +4,12 @@ import { CartaComponent } from './carta/carta.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { UserComponent } from './user/user.component';
-import { User } from './service/User';
+import { SetsComponent } from './sets/sets.component';
 
 const routes: Routes = [
   { path: 'carta', component: CartaComponent },
   { path: 'carta/page/:page', component: CartaComponent },
-  { path: 'carta/set/:set', component: CartaComponent},
+  { path: 'set/:set', component: SetsComponent},
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'user', component: UserComponent},

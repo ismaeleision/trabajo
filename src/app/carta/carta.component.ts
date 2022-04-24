@@ -39,13 +39,6 @@ export class CartaComponent implements OnInit {
     this.page=this.page+1;
     this.crudService.GetCartas(this.page).subscribe(res => {
       this.Cartas = res;
-     
-    });    
-  }
-
-  CartasSet(nombre:String){
-    this.crudService.CartasSet(nombre).subscribe(res => {
-      this.Cartas = res;
     });    
   }
 }

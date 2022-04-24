@@ -9,9 +9,9 @@ import { FormsModule } from '@angular/forms';
 import { CartaComponent } from './carta/carta.component';//Carta
 import { RegisterComponent } from './register/register.component';//Registro
 import { LoginComponent } from './login/login.component';//Login
-import {NgxWebstorageModule} from 'ngx-webstorage';
-import { UserComponent } from './user/user.component';//Sesion-Local Storage
-
+import {NgxWebstorageModule} from 'ngx-webstorage';//Sesion-Local Storage
+import { UserComponent } from './user/user.component';
+import { SetsComponent } from './sets/sets.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +20,7 @@ import { UserComponent } from './user/user.component';//Sesion-Local Storage
     RegisterComponent,
     LoginComponent,
     UserComponent,
+    SetsComponent,
   ],
   imports: [
     BrowserModule,
