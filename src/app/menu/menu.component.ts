@@ -13,4 +13,10 @@ export class MenuComponent implements OnInit {
   ngOnInit(): void {
   }
 
+   //borra los datos guardados en sesion
+deslogueo(){
+  this.sesion.clear();
+  console.log("Saliendo");
+}
+
 }

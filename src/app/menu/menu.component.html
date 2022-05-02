@@ -1,33 +1,37 @@
-<div class="container-fluid bg-light p-4">
+<div class="container-fluid bg-light p-4 mt-4">
   <nav class="navbar navbar-expand-md navbar-light">
-    <a class="navbar-brand text-danger fw-bold fst-italic" href="#">CarBoCe</a>
+    <button class="btn">
+      <h2 class="text-danger fw-bold" routerLink="/">CarBoCe</h2>
+    </button>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="navbarCollapse"
       aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="menu">
-      <ul class="navbar-nav mr-auto">
+      <ul class="navbar-nav mr-auto ms-4">
         <li class="nav-item text-danger col-6" *ngIf="this.sesion.retrieve('usuario'); else login;">
           Hola,
           {{this.sesion.retrieve("usuario")}}
         </li>
         <li class="nav-item">
-          <a class="nav-link text-danger" href="#">Cartas</a>
+          <a class="nav-link h5 text-danger" routerLink="/carta">Cartas</a>
         </li>
         <li class="nav-item col-4">
-          <a class="nav-link text-danger" href="#">Listas</a>
+          <a class="nav-link h5 text-danger" routerLink="/carta">Listas</a>
+        </li>
+        <li class="nav-item col-4">
+          <a class="nav-link h5 text-danger" (click)="deslogueo()" routerLink="/">Cerrar Sesión</a>
         </li>
       </ul>
     </div>
   </nav>
 </div>
 
-
 <ng-template #login>
   <li class="nav-item">
-    <a class="nav-link text-danger" routerLink="/login">Login</a>
+    <a class="nav-link h5 text-danger" routerLink="/login">Login</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link text-danger" routerLink="/register">Registro</a>
+    <a class="nav-link h5 text-danger" routerLink="/register">Registro</a>
   </li>
 </ng-template>
