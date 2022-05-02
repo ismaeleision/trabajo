@@ -3,9 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { CartaComponent } from './carta/carta.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
-import { UserComponent } from './user/user.component';
 import { SetsComponent } from './sets/sets.component';
 import { CartaIdComponent } from './carta-id/carta-id.component';
+
 
 const routes: Routes = [
   { path: 'carta', component: CartaComponent },
@@ -14,8 +14,6 @@ const routes: Routes = [
   { path: 'set/:set', component: SetsComponent},
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'user', component: UserComponent},
-  
 ];
 
 @NgModule({

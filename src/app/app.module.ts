@@ -10,10 +10,10 @@ import { CartaComponent } from './carta/carta.component';//Carta
 import { RegisterComponent } from './register/register.component';//Registro
 import { LoginComponent } from './login/login.component';//Login
 import {NgxWebstorageModule} from 'ngx-webstorage';//Sesion-Local Storage
-import { UserComponent } from './user/user.component';
 import { SetsComponent } from './sets/sets.component';
 import { CartaIdComponent } from './carta-id/carta-id.component';
 import { MenuComponent } from './menu/menu.component';
+
 
 @NgModule({
   declarations: [
@@ -21,7 +21,6 @@ import { MenuComponent } from './menu/menu.component';
     CartaComponent,
     RegisterComponent,
     LoginComponent,
-    UserComponent,
     SetsComponent,
     CartaIdComponent,
     MenuComponent,

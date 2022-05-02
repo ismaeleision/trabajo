@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md bg-light mb-4 p-4">
+<nav class="navbar navbar-expand-md navbar-light bg-light mb-4 p-4">
   <a class="navbar-brand text-danger fw-bold fst-italic" href="#">CarBoCe</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu" aria-controls="navbarCollapse"
     aria-expanded="false" aria-label="Toggle navigation">
@@ -6,18 +6,15 @@
   </button>
   <div class="collapse navbar-collapse" id="menu">
     <ul class="navbar-nav mr-auto">
+      <li class="nav-item text-danger col-6" *ngIf="this.sesion.retrieve('usuario'); else login;">
+        Hola,
+        {{this.sesion.retrieve("usuario")}}
+      </li>
       <li class="nav-item col-4 ms-2">
         <a class="nav-link text-danger" href="#">Cartas</a>
       </li>
       <li class="nav-item col-4">
         <a class="nav-link text-danger" href="#">Listas</a>
-      </li>
-      <li class="col-12"></li>
-      <li class="col-12"></li>
-      <li class="col-12"></li>
-      <li class="nav-item" *ngIf="this.sesion.retrieve('usuario'); else login;">
-        <a class="nav-link disabled text-danger" href="#">Hola,
-          {{this.sesion.retrieve("usuario")}}</a>
       </li>
     </ul>
     <!--
