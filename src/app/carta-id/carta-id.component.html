@@ -1,9 +1,18 @@
-<div class="container">
-  <!--Cartas-->
-  <div class="row bg-light p-3">
-    <div class="col-4">
+<div class="container bg-light p-3">
+  <!--Imagen Carta-->
+  <div class="row">
+    <div class="col-4"></div>
+    <div class="col-6" style="width:25rem;">
       <img *ngIf="Carta.image_uris" src="{{Carta.image_uris.normal}}" class="card-img-top">
     </div>
+  </div>
+  <div class="row mt-4">
+    <!--Boton volver-->
+    <div class="col">
+      <button class="btn btn-secondary" (click)="volver()">Volver</button>
+    </div>
+
+    <!--Formato jugable-->
     <div class="col">
       <button class=" btn btn-secondary dropdown-toggle " type=" button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
         aria-expanded="false">
@@ -21,30 +30,40 @@
       </ul>
     </div>
 
+    <!--Nombre del Set-->
     <div class="col">
       <div class="card-text shadow p-2  bg-secondary text-light rounded text-center">
         {{Carta.set_name}}
       </div>
     </div>
-
+  </div>
+  <div class="row mt-4">
+    <!--Precios-->
     <div class="col">
-
       <div class="card-text shadow bg-body rounded text-center">
         <p class="pt-3 fw-bold text-danger">Precios</p>
-        <p *ngIf="Carta.prices.eur; else precio">Europa
-          {{Carta.prices.eur}}€
+        <p *ngIf="Carta.prices.eur; else precio">
+          Europa {{Carta.prices.eur}}€
         </p>
-        <p *ngIf="Carta.prices.eur_foil; else precio">Foil Europa
-          {{Carta.prices.eur_foil}}€
+        <p *ngIf="Carta.prices.eur_foil; else precio">
+          Foil Europa {{Carta.prices.eur_foil}}€
         </p>
-        <p *ngIf="Carta.prices.eur_foil; else precio">USD
-          {{Carta.prices.usd}}$
+        <p *ngIf="Carta.prices.eur_foil; else precio">
+          USD {{Carta.prices.usd}}$
         </p>
-        <p *ngIf="Carta.prices.eur_foil; else precio">Foil USD
-          {{Carta.prices.usd_foil}}$
+        <p *ngIf="Carta.prices.eur_foil; else precio">
+          Foil USD {{Carta.prices.usd_foil}}$
         </p>
       </div>
     </div>
+
+    <div class="col">
+      <div class="card-text shadow bg-body rounded text-center p-3">
+        {{Carta.oracle_text}}
+      </div>
+    </div>
+
+
   </div>
   <!--Si el precio es nulo pone un N/A en su lugar-->
   <ng-template #precio>

@@ -19,7 +19,7 @@ export class SetsComponent implements OnInit {
     this.crudService.GetSets().subscribe(res =>{
       this.sets = res;
       this.setActual = this.route.snapshot.url[1].toString();
-      console.log(this.route);
+     
       //Deberia encontrar el array en el que se encuentra el set correcto
       for(let i=0; i<this.sets.length; i++){
         if(this.sets[i]._id.set==this.setActual)
