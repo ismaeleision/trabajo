@@ -1,3 +1,9 @@
 <div class="container">
   <input type="text" class="form-control form-control-lg" placeholder="Buscador" (keyup)="buscador($event)">
+  <div class="container">
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let carta of Cartas"><a
+          routerLink="/carta/id/{{carta._id}}">{{carta.name}}--{{carta.set_name}}</a></li>
+    </ul>
+  </div>
 </div>
