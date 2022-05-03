@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Carta } from './Carta';
+
 import { User } from './User';
 import { catchError, map } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
@@ -54,6 +54,10 @@ export class CrudService {
 
   CartasSet(nombre: String){
     return this.httpClient.get(`${this.REST_API}/carta/set/`+nombre);
+  }
+
+  buscador(nombre: String){
+    return this.httpClient.get(`${this.REST_API}/buscador/`+nombre);
   }
 
     // Error

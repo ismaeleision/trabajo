@@ -12,6 +12,7 @@ import { LoginComponent } from './login/login.component';//Login
 import {NgxWebstorageModule} from 'ngx-webstorage';//Sesion-Local Storage
 import { SetsComponent } from './sets/sets.component';
 import { CartaIdComponent } from './carta-id/carta-id.component';
+import { BuscadorComponent } from './buscador/buscador.component';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { CartaIdComponent } from './carta-id/carta-id.component';
     LoginComponent,
     SetsComponent,
     CartaIdComponent,
+    BuscadorComponent,
   ],
   imports: [
     BrowserModule,
