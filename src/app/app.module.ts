@@ -14,7 +14,6 @@ import { SetsComponent } from './sets/sets.component';
 import { CartaIdComponent } from './carta-id/carta-id.component';
 
 
-
 @NgModule({
   declarations: [
     AppComponent,

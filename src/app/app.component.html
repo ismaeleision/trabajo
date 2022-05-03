@@ -8,22 +8,24 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="menu">
-      <ul class="navbar-nav mr-auto ms-4">
+      <ul class="navbar-nav me-auto ms-4">
         <li class="nav-item">
           <a class="nav-link h5 text-danger" routerLink="/carta">Cartas</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link h5 text-danger" routerLink="/carta">Listas</a>
+          <a class="nav-link h5 text-danger" routerLink="/user" *ngIf="this.sesion.retrieve('usuario');">Listas</a>
         </li>
-       <li class="col-5"></li> 
-        <li class="nav-item text-danger " *ngIf="this.sesion.retrieve('usuario'); else login;">
+       <li class=" nav-item">
+        </li>
+        <li class="nav-item" *ngIf="this.sesion.retrieve('usuario'); else login;">
           Hola,
           {{this.sesion.retrieve("usuario")}}
         </li>
         <li class="nav-item">
-          <a class="nav-link h5 text-danger" (click)="deslogueo()" routerLink="/" *ngIf="this.sesion.retrieve('usuario');">Cerrar Sesión</a>
+          <a class="nav-link h5 text-danger" (click)="deslogueo()" *ngIf="this.sesion.retrieve('usuario');">Cerrar Sesión</a>
         </li>
       </ul>
+      
     </div>
   </nav>
 </div>

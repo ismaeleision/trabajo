@@ -6,12 +6,14 @@ import { CrudService } from './../service/crud.service';
   templateUrl: './carta.component.html',
   styleUrls: ['./carta.component.css']
 })
+
 export class CartaComponent implements OnInit {
 
   Cartas:any = [];
   page:number = 0;
   total:number =  100;
   sets:any = [];
+  buscador:any = [];
 
   constructor(private crudService: CrudService) { }
 
