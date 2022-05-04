@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {SessionStorageService} from 'ngx-webstorage';
 
 @Component({
-  selector: 'app-cabecera',
+  selector: 'cabecera',
   templateUrl: './cabecera.component.html',
   styleUrls: ['./cabecera.component.css']
 })
