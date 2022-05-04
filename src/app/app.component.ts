@@ -12,10 +12,6 @@ export class AppComponent {
   constructor(public sesion:SessionStorageService){}
  
  
-   //borra los datos guardados en sesion
-deslogueo(){
-  this.sesion.clear();
-  console.log("Saliendo");
-}
+
 
 }
