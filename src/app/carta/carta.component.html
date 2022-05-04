@@ -1,5 +1,5 @@
-<div class="container" ng-app="buscador">
-  <h1 class="text-light p-5 text- text-center">Cartas</h1>
+<div class="container mt-5">
+  <h1 class="text-light p-5 text- text-center mt-5 p-5">Cartas</h1>
 
   <!--Desplegable Sets-->
   <div class="row">
@@ -18,16 +18,14 @@
         </ul>
       </div>
     </div>
-    <div class="col">
-      <buscador></buscador>
-    </div>
+
   </div>
 
   <!--Cartas-->
   <div class="row">
     <div class="col" *ngFor="let carta of Cartas">
       <nav class="navbar navbar-expand-block">
-        <div class="card" style="width: 18rem;">
+        <div class="card" style="width: 15rem;">
           <!--Falla no esta cogiendo bien el id o algo asi-->
           <a routerLink="/carta/id/{{carta._id}}">
             <img *ngIf="carta.image_uris" src="{{carta.image_uris.normal}}" class="card-img-top">
@@ -39,7 +37,7 @@
 
   <!--Paginador Prueba Automatico//
   -->
-  <div class="row ">
+  <div class="row mb-5 p-5">
     <div class="col-10">
       <button class="btn btn-light text-danger btn-lg m-4" *ngIf="this.page>0; else limiteInferior"
         [routerLink]="['/carta/page', this.page-1]" (click)="paginaAnterior()">-</button>

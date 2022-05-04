@@ -1,43 +1,21 @@
 <div class="container bg-light mt-5 p-3">
+
   <!--Imagen Carta-->
   <div class="row mt-5">
-    <div class="col-4"></div>
-    <div class="col-6" style="width:25rem;">
+    <div class="col-4" style="width:15rem;">
       <img *ngIf="Carta.image_uris" src="{{Carta.image_uris.normal}}" class="card-img-top">
     </div>
-  </div>
-  <div class="row mt-5">
-    <!--Boton volver-->
+
     <div class="col">
       <button class="btn btn-secondary" (click)="volver()">Volver</button>
     </div>
 
-    <!--Formato jugable-->
     <div class="col">
-      <button class=" btn btn-secondary dropdown-toggle " type=" button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
-        aria-expanded="false">
-        Legalidad
-      </button>
-      <ul class="dropdown-menu p-2 text-center" aria-labelledby="dropdownMenuButton1">
-        <li>Standard ({{Carta.legalities.standard}})</li>
-        <li>Historic ({{Carta.legalities.historic}})</li>
-        <li>Pioneer ({{Carta.legalities.pioneer}})</li>
-        <li>Modern ({{Carta.legalities.modern}})</li>
-        <li>Legacy ({{Carta.legalities.legacy}})</li>
-        <li>Pauper ({{Carta.legalities.pauper}})</li>
-        <li>Vintage ({{Carta.legalities.vintage}})</li>
-        <li>Commander ({{Carta.legalities.commander}})</li>
-      </ul>
-    </div>
-
-    <!--Nombre del Set-->
-    <div class="col">
-      <div class="card-text shadow p-2  bg-secondary text-light rounded text-center">
-        {{Carta.set_name}}
+      <div class="card-text shadow bg-body rounded text-center p-3 border border-danger">
+        {{Carta.name}}
       </div>
     </div>
-  </div>
-  <div class="row mt-4">
+
     <!--Precios-->
     <div class="col">
       <div class="card-text shadow bg-body rounded text-center border border-danger">
@@ -56,17 +34,41 @@
         </p>
       </div>
     </div>
-
+    <!--Formato jugable-->
     <div class="col">
-      <div class="card-text shadow bg-body rounded text-center p-3 border border-danger">
-        {{Carta.oracle_text}}
+      <button class=" btn btn-secondary dropdown-toggle " type=" button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+        aria-expanded="false">
+        Legalidad
+      </button>
+      <ul class="dropdown-menu p-2 text-center" aria-labelledby="dropdownMenuButton1">
+        <li>Standard ({{Carta.legalities.standard}})</li>
+        <li>Historic ({{Carta.legalities.historic}})</li>
+        <li>Pioneer ({{Carta.legalities.pioneer}})</li>
+        <li>Modern ({{Carta.legalities.modern}})</li>
+        <li>Legacy ({{Carta.legalities.legacy}})</li>
+        <li>Pauper ({{Carta.legalities.pauper}})</li>
+        <li>Vintage ({{Carta.legalities.vintage}})</li>
+        <li>Commander ({{Carta.legalities.commander}})</li>
+      </ul>
+    </div>
+    <!--Nombre del Set-->
+    <div class="col">
+      <div class="card-text shadow p-2  bg-secondary text-light rounded text-center">
+        {{Carta.set_name}}
       </div>
     </div>
-
-
   </div>
-  <!--Si el precio es nulo pone un N/A en su lugar-->
-  <ng-template #precio>
-    <p class="card-text shadow bg-body rounded text-center" #precio>N/A</p>
-  </ng-template>
+
+  <div class="col mt-3">
+    <div class="card-text shadow bg-body rounded text-center p-3 border border-danger">
+      {{Carta.oracle_text}}
+    </div>
+  </div>
+
 </div>
+
+
+<!--Si el precio es nulo pone un N/A en su lugar-->
+<ng-template #precio>
+  <p class="card-text shadow bg-body rounded text-center" #precio>N/A</p>
+</ng-template>

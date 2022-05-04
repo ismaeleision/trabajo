@@ -21,13 +21,12 @@ export class BuscadorComponent implements OnInit {
   //Si la palabra es mas larga de 4 letras comienza a lanzar peticiones de busqueda
   buscador(x: any){
     this.palabra=x.target.value;
-    if(this.palabra.length>4){
+    if(this.palabra.length>2){
       this.crudService.buscador(this.palabra).subscribe(res => {
         this.Cartas = res;
       });    
+    }else{
+      this.Cartas = [];
     }
-    console.log(this.palabra.length);
-    console.log(x.target.value);
-    console.log(this.Cartas);
   }
 }
