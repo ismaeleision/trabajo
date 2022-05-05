@@ -26,4 +26,15 @@ export class CartaIdComponent implements OnInit {
   volver(){
     this.location.back();
   }
+
+  //Deberia de desviar la ruta a tcgplayer e idealmente que te pille tu cuenta y te la añada al carrito
+  //si no que te envie a la pagina de la carta
+  comprar(){
+
+  }
+
+  //Añade a tu lista de seguimiento o a tus mazos creados
+  anadir(){
+    
+  }
 }

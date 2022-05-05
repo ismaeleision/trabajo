@@ -29,4 +29,8 @@ export class BuscadorComponent implements OnInit {
       this.Cartas = [];
     }
   }
+
+  limpiar(){
+    this.palabra="";
+  }
 }

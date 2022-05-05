@@ -1,74 +1,85 @@
-<div class="container bg-light mt-5 p-3">
+<div class="container mt-5">
 
   <!--Imagen Carta-->
   <div class="row mt-5">
-    <div class="col-4" style="width:15rem;">
+    <div class="col-2" style="width:16rem;">
       <img *ngIf="Carta.image_uris" src="{{Carta.image_uris.normal}}" class="card-img-top">
     </div>
 
-    <div class="col">
-      <button class="btn btn-secondary" (click)="volver()">Volver</button>
-    </div>
+    <!--Nombre Carta-->
+    <div class="col-9">
+      <div class="row">
+        <div class="col text-danger bg-light text-center p-3 ms-2 border border-danger fw-bold">
+          {{Carta.name}}
+        </div>
 
-    <div class="col">
-      <div class="card-text shadow bg-body rounded text-center p-3 border border-danger">
-        {{Carta.name}}
+        <!--Nombre del Set-->
+        <div class="col text-center p-3 ms-2 btn btn-light btn-outline-danger" routerLink="/set/{{Carta.set}}">
+          {{Carta.set_name}}
+        </div>
+      </div>
+      <div class="row mt-3">
+
+        <!--Texto Carta-->
+        <div class="col-8">
+          <div class="card-text shadow bg-body rounded text-center p-3 border border-danger">
+            {{Carta.oracle_text}}
+          </div>
+        </div>
+
+        <!--Precios-->
+        <div class="col  shadow bg-body rounded text-center border border-danger h-75">
+          <p class="pt-3 fw-bold text-danger">Precios</p>
+          <p *ngIf="Carta.prices.eur; else precio">
+            {{Carta.prices.eur}}€
+          </p>
+          <p *ngIf="Carta.prices.eur_foil; else precio">
+            Foil {{Carta.prices.eur_foil}}€
+          </p>
+          <p *ngIf="Carta.prices.eur_foil; else precio">
+            USD {{Carta.prices.usd}}$
+          </p>
+          <p *ngIf="Carta.prices.eur_foil; else precio">
+            USD Foil {{Carta.prices.usd_foil}}$
+          </p>
+        </div>
       </div>
     </div>
 
-    <!--Precios-->
-    <div class="col">
-      <div class="card-text shadow bg-body rounded text-center border border-danger">
-        <p class="pt-3 fw-bold text-danger">Precios</p>
-        <p *ngIf="Carta.prices.eur; else precio">
-          Europa {{Carta.prices.eur}}€
-        </p>
-        <p *ngIf="Carta.prices.eur_foil; else precio">
-          Foil Europa {{Carta.prices.eur_foil}}€
-        </p>
-        <p *ngIf="Carta.prices.eur_foil; else precio">
-          USD {{Carta.prices.usd}}$
-        </p>
-        <p *ngIf="Carta.prices.eur_foil; else precio">
-          Foil USD {{Carta.prices.usd_foil}}$
-        </p>
+    <div class="row m-3">
+      <!--Formato jugable-->
+      <div class="col">
+        <button class=" btn btn-light btn-outline-secondary dropdown-toggle " type=" button" id="dropdownMenuButton1"
+          data-bs-toggle="dropdown" aria-expanded="false">
+          FORMATOS
+        </button>
+        <ul class="dropdown-menu p-3 text-center fw-bold" aria-labelledby="dropdownMenuButton1">
+          <li>Standard ({{Carta.legalities.standard}})</li>
+          <li>Historic ({{Carta.legalities.historic}})</li>
+          <li>Pioneer ({{Carta.legalities.pioneer}})</li>
+          <li>Modern ({{Carta.legalities.modern}})</li>
+          <li>Legacy ({{Carta.legalities.legacy}})</li>
+          <li>Pauper ({{Carta.legalities.pauper}})</li>
+          <li>Vintage ({{Carta.legalities.vintage}})</li>
+          <li>Commander ({{Carta.legalities.commander}})</li>
+        </ul>
       </div>
-    </div>
-    <!--Formato jugable-->
-    <div class="col">
-      <button class=" btn btn-secondary dropdown-toggle " type=" button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
-        aria-expanded="false">
-        Legalidad
-      </button>
-      <ul class="dropdown-menu p-2 text-center" aria-labelledby="dropdownMenuButton1">
-        <li>Standard ({{Carta.legalities.standard}})</li>
-        <li>Historic ({{Carta.legalities.historic}})</li>
-        <li>Pioneer ({{Carta.legalities.pioneer}})</li>
-        <li>Modern ({{Carta.legalities.modern}})</li>
-        <li>Legacy ({{Carta.legalities.legacy}})</li>
-        <li>Pauper ({{Carta.legalities.pauper}})</li>
-        <li>Vintage ({{Carta.legalities.vintage}})</li>
-        <li>Commander ({{Carta.legalities.commander}})</li>
-      </ul>
-    </div>
-    <!--Nombre del Set-->
-    <div class="col">
-      <div class="card-text shadow p-2  bg-secondary text-light rounded text-center">
-        {{Carta.set_name}}
+
+      <div class="col btn btn-light btn-outline-secondary ms-2" (click)="volver()">
+        VOLVER
+      </div>
+
+      <div class="col btn btn-light btn-outline-secondary ms-2" (click)="anadir()">
+        AÑADIR
+      </div>
+      <div class="col btn btn-light btn-outline-secondary ms-2" (click)="comprar()">
+        COMPRAR
       </div>
     </div>
   </div>
-
-  <div class="col mt-3">
-    <div class="card-text shadow bg-body rounded text-center p-3 border border-danger">
-      {{Carta.oracle_text}}
-    </div>
-  </div>
-
 </div>
-
 
 <!--Si el precio es nulo pone un N/A en su lugar-->
 <ng-template #precio>
-  <p class="card-text shadow bg-body rounded text-center" #precio>N/A</p>
+  <p #precio>N/A</p>
 </ng-template>

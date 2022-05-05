@@ -1,11 +1,11 @@
 <div class="container mt-5">
-  <h1 class="text-light p-5 text- text-center mt-5">{{setActual}}</h1>
+  <h1 class="p-3 text-danger text-center mt-5 shadow bg-body rounded border border-danger">{{setActual}}</h1>
 
   <!--Desplegable Sets-->
   <div class="row">
     <div class="col">
-      <div class="dropdown mb-4">
-        <button class="btn btn-secondary text-light dropdown-toggle" type="button" id="sets" data-bs-toggle="dropdown"
+      <div class="dropdown mt-4 mb-4">
+        <button class="btn btn-light btn-outline-danger dropdown-toggle" type="button" id="sets" data-bs-toggle="dropdown"
           aria-expanded="false">
           Ediciones
         </button>
@@ -24,7 +24,7 @@
   <div class="row">
     <div class="col" *ngFor="let carta of Cartas">
       <nav class="navbar navbar-expand-block">
-        <div class="card" style="width: 18rem;">
+        <div class="card" style="width: 16rem;">
           <!--Falla no esta cogiendo bien el id o algo asi-->
           <a routerLink="/carta/id/{{carta._id}}">
             <img *ngIf="carta.image_uris" src="{{carta.image_uris.normal}}" class="card-img-top">
