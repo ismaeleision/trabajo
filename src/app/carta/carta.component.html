@@ -43,9 +43,10 @@
         [routerLink]="['/carta/page', this.page-1]" (click)="paginaAnterior()">-</button>
     </div>
     <div class="col-2">
-      <button class="btn btn-light text-danger btn-lg m-4" *ngIf="this.page<=(total-1); else limiteSuperior"
-        [routerLink]="['/carta/page', this.page+1]" (click)="
-        paginaPosterior()">+</button>
+      <button class="btn btn-light text-danger btn-lg m-4" *ngIf="this.page<=(this.total-1); else limiteSuperior"
+        [routerLink]="['/carta/page', this.page+1]" (click)="paginaPosterior()">
+        +
+      </button>
     </div>
   </div>
 
