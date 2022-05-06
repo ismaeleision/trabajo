@@ -14,8 +14,6 @@ import { SetsComponent } from './sets/sets.component';
 import { CartaIdComponent } from './carta-id/carta-id.component';
 import { BuscadorComponent } from './buscador/buscador.component';
 import { CabeceraComponent } from './cabecera/cabecera.component';
-import { FooterComponent } from './footer/footer.component';
-
 
 @NgModule({
   declarations: [
@@ -27,7 +25,6 @@ import { FooterComponent } from './footer/footer.component';
     CartaIdComponent,
     BuscadorComponent,
     CabeceraComponent,
-    FooterComponent,
   ],
   imports: [
     BrowserModule,
