@@ -60,6 +60,10 @@ export class CrudService {
     return this.httpClient.get(`${this.REST_API}/buscador/`+nombre);
   }
 
+  buscadorCoincidencias(nombre: String){
+    return this.httpClient.get(`${this.REST_API}/buscadorc/`+nombre);
+  }
+
     // Error
   handleError(error: HttpErrorResponse) {
     let errorMessage = '';

@@ -14,6 +14,7 @@ import { SetsComponent } from './sets/sets.component';
 import { CartaIdComponent } from './carta-id/carta-id.component';
 import { BuscadorComponent } from './buscador/buscador.component';
 import { CabeceraComponent } from './cabecera/cabecera.component';
+import { CoincidenciasComponent } from './coincidencias/coincidencias.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { CabeceraComponent } from './cabecera/cabecera.component';
     CartaIdComponent,
     BuscadorComponent,
     CabeceraComponent,
+    CoincidenciasComponent,
   ],
   imports: [
     BrowserModule,

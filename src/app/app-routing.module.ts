@@ -5,6 +5,7 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { SetsComponent } from './sets/sets.component';
 import { CartaIdComponent } from './carta-id/carta-id.component';
+import { CoincidenciasComponent } from './coincidencias/coincidencias.component';
 
 
 const routes: Routes = [
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'set/:set', component: SetsComponent},
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'buscar/:palabra', component: CoincidenciasComponent },
 ];
 
 @NgModule({
