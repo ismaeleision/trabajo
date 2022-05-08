@@ -11,9 +11,11 @@ import {
 @Injectable({
   providedIn: 'root',
 })
+
 export class CrudService {
   // Node/Express API
   REST_API: string = 'http://localhost:3977';
+  
   // Http Header
   httpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
   constructor(private httpClient: HttpClient) {}
@@ -38,6 +40,7 @@ export class CrudService {
    return this.httpClient.get(`${this.REST_API}/carta/id/${id}`);
   }
 
+  //Recoge el total de paginas que hay
   GetCartasTotal(){
     let API_URL = `${this.REST_API}/carta/total`;
     return this.httpClient.get(API_URL, { headers: this.httpHeaders }).pipe(
@@ -48,18 +51,22 @@ export class CrudService {
     );
   }
 
+  //Recoge los diferentes sets que hay en las cartas
   GetSets(){
     return this.httpClient.get(`${this.REST_API}/carta/set`);
   }
 
+  //Obtiene las cartas que compartan set
   CartasSet(nombre: String){
     return this.httpClient.get(`${this.REST_API}/carta/set/`+nombre);
   }
 
+  //Obtiene las 5 primeras coincidencias con la palabra en el buscador
   buscador(nombre: String){
     return this.httpClient.get(`${this.REST_API}/buscador/`+nombre);
   }
 
+  //Obtiene todas las coincidencias con la palabra en el buscador
   buscadorCoincidencias(nombre: String){
     return this.httpClient.get(`${this.REST_API}/buscadorc/`+nombre);
   }

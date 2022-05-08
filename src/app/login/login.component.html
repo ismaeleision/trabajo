@@ -3,20 +3,20 @@
     <form class="custom-form" method="post">
       <h1 class="text-danger p-3 text- text-center">Login</h1>
       <div class="col">
-        <input class="form-control border border-2 border-danger" type="email" [(ngModel)]="email" name="email" placeholder="Email"
+        <input class="form-control border border-4 border-dark" type="email" [(ngModel)]="email" name="email" placeholder="Email"
           required="required" />
       </div>
       <div class="col mt-3">
-        <input class="form-control border border-2 border-danger" type="password" [(ngModel)]="password" name="password"
-          placeholder="Password" required="required" />
+        <input class="form-control border border-4 border-dark" type="password" [(ngModel)]="password" name="password"
+          placeholder="Contraseña" required="required" />
       </div>
       <div class="col mt-3">
-        <button class="btn btn-light btn-outline-danger border border-3 border-danger" type="submit" (click)="login()" routerLink="/">
+        <button class="btn btn-light btn-outline-dark border border-3 border-dark" type="submit" (click)="login()" routerLink="/">
           Log in
         </button>
       </div>
       <div class="col m-4">
-        <button class="btn btn-light btn-outline-danger border border-3 border-danger" routerLink="/register">
+        <button class="btn btn-light btn-outline-dark border border-3 border-dark" routerLink="/register">
           ¿No tienes cuenta? Registrate
         </button>
       </div>

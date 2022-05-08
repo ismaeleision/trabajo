@@ -15,6 +15,7 @@ import { CartaIdComponent } from './carta-id/carta-id.component';
 import { BuscadorComponent } from './buscador/buscador.component';
 import { CabeceraComponent } from './cabecera/cabecera.component';
 import { CoincidenciasComponent } from './coincidencias/coincidencias.component';
+import { UserComponent } from './user/user.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { CoincidenciasComponent } from './coincidencias/coincidencias.component'
     BuscadorComponent,
     CabeceraComponent,
     CoincidenciasComponent,
+    UserComponent,
   ],
   imports: [
     BrowserModule,
