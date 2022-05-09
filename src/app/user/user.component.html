@@ -1,1 +1,10 @@
-<p>user works!</p>
+<div class="container mt-5">
+  <h1 class="p-3 text-danger text-center mt-5 shadow bg-body rounded border border-danger">Cartas</h1>
+  <!--Mazos-->
+  <div class="row">
+    <ul class="list-group col" *ngFor="let mazo of Mazos">
+      <!--Al pincharle te muestra el mazo y cada carta que contiene-->
+      <li class="list-group-item" routerLink="/mazo/{{mazo._id}}">{{mazo.nombre}}</li>
+    </ul>
+  </div>
+</div>

@@ -71,6 +71,20 @@ export class CrudService {
     return this.httpClient.get(`${this.REST_API}/buscadorc/`+nombre);
   }
 
+//crea el mazo con el nombre que le pase el usuario con su email o id
+crearMazo(nombre:String, user_email:String){
+  return this.httpClient.post(`${this.REST_API}/mazo/new`, {user_email, nombre});
+}
+
+  //obtiene los mazos con el email del usuario
+  getMazos(user_email:any){
+    return this.httpClient.get(`${this.REST_API}/user`, user_email);
+  }
+
+  getMazo(user_email:any, id:any){
+    return this.httpClient.get(`${this.REST_API}/mazo/`+id, user_email);
+  }
+
     // Error
   handleError(error: HttpErrorResponse) {
     let errorMessage = '';

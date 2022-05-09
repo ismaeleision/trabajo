@@ -7,10 +7,10 @@ import { SetsComponent } from './sets/sets.component';
 import { CartaIdComponent } from './carta-id/carta-id.component';
 import { CoincidenciasComponent } from './coincidencias/coincidencias.component';
 import { UserComponent } from './user/user.component';
+import { MazoComponent } from './mazo/mazo.component';
 
 
 const routes: Routes = [
-  { path: 'carta', component: CartaComponent },
   { path: 'carta/page/:page', component: CartaComponent },
   { path: 'carta/id/:id', component: CartaIdComponent},
   { path: 'set/:set', component: SetsComponent},
@@ -18,6 +18,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'buscar/:palabra', component: CoincidenciasComponent },
   { path: 'user', component: UserComponent },
+  { path: 'mazo/:id', component: MazoComponent },
 ];
 
 @NgModule({
