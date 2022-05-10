@@ -1,5 +1,10 @@
 <div class="container mt-5">
   <h1 class="p-3 text-danger text-center mt-5 shadow bg-body rounded border border-danger">Mazos</h1>
+  <div class="row">
+    <div class="col">
+      <button class="btn btn-light btn-outlined-danger" (click)="nuevoMazo()">Nuevo Mazo</button>
+    </div>
+  </div>
   <!--Mazos-->
   <div class="row">
     <ul class="list-group col" *ngFor="let mazo of Mazos">

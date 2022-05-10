@@ -18,4 +18,9 @@ export class UserComponent implements OnInit {
     });    
   }
 
+  //tiene que recoger el nombre del mazo y crearlo con el email del usuario
+  nuevoMazo(){
+
+  }
+
 }
