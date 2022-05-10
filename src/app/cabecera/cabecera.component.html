@@ -16,13 +16,14 @@
           <a class="nav-link h5 text-danger" routerLink="/carta/page/0">CARTAS</a>
         </li>
         <li class="nav-item me-5" *ngIf="this.sesion.retrieve('usuario');">
-          <a class="nav-link h5 text-danger" routerLink="/user">MAZOS</a>
+          <a class="nav-link h5 text-danger" routerLink="/user/{{this.sesion.retrieve('usuario')}}">MAZOS</a>
         </li>
         <li class="nav-item text-danger mt-2" *ngIf="this.sesion.retrieve('usuario'); else login;">
           Hola, {{this.sesion.retrieve("usuario")}}
         </li>
         <li class="nav-item ms-2">
-          <button class="h5 btn btn-danger btn-outline-dark border border-3 border-dark text-light" (click)="deslogueo()" *ngIf="this.sesion.retrieve('usuario');">CERRAR SESIÓN</button>
+          <button class="h5 btn btn-danger btn-outline-dark border border-3 border-dark text-light" (click)="deslogueo()"
+            *ngIf="this.sesion.retrieve('usuario');">CERRAR SESIÓN</button>
         </li>
       </ul>
     </div>

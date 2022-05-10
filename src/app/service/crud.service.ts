@@ -77,11 +77,11 @@ crearMazo(nombre:String, user_email:String){
 }
 
   //obtiene los mazos con el email del usuario
-  getMazos(user_email:any){
-    return this.httpClient.get(`${this.REST_API}/user`, user_email);
+  getMazos(user_email:string){
+    return this.httpClient.get(`${this.REST_API}/user/`+user_email);
   }
 
-  getMazo(user_email:any, id:any){
+  getMazo(user_email:any, id:String){
     return this.httpClient.get(`${this.REST_API}/mazo/`+id, user_email);
   }
 

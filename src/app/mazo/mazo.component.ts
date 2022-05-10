@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class MazoComponent implements OnInit {
 Mazo:any = [];
-id:any = "";
+id:string = "";
 
   constructor(private crudService: CrudService, public sesion: SessionStorageService, private route: ActivatedRoute) { }
 

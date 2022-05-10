@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'buscar/:palabra', component: CoincidenciasComponent },
-  { path: 'user', component: UserComponent },
+  { path: 'user/:user_email', component: UserComponent },
   { path: 'mazo/:id', component: MazoComponent },
 ];
 
