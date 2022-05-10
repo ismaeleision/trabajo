@@ -81,8 +81,8 @@ crearMazo(nombre:String, user_email:String){
     return this.httpClient.get(`${this.REST_API}/user/`+user_email);
   }
 
-  getMazo(user_email:any, id:String){
-    return this.httpClient.get(`${this.REST_API}/mazo/`+id, user_email);
+  getMazo( id:String){
+    return this.httpClient.get(`${this.REST_API}/mazo/`+id);
   }
 
     // Error

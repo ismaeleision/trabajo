@@ -16,7 +16,7 @@ id:string = "";
 
   ngOnInit(): void {
     this.id = this.route.snapshot.url[1].toString();
-    this.crudService.getMazo(this.sesion.retrieve('usuario'), this.id).subscribe(res => {
+    this.crudService.getMazo(this.id).subscribe(res => {
       this.Mazo = res;
     });    
 
