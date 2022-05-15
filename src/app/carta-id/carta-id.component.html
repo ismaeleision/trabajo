@@ -2,24 +2,13 @@
 
   <!--Imagen Carta-->
   <div class="row mt-5">
-    <div class="col-2" style="width:16rem;">
+    <div class="col-2" style="width:18rem;">
       <img *ngIf="Carta.image_uris" src="{{Carta.image_uris.normal}}" class="card-img-top">
     </div>
-
     <!--Nombre Carta-->
-    <div class="col-9 mt-2">
-      <div class="row">
-        <div class="col text-danger bg-light text-center p-3 ms-2 border border-danger border-3 fw-bold">
-          {{Carta.name}}
-        </div>
-
-        <!--Nombre del Set-->
-        <div class="col text-center p-3 ms-2 btn btn-light btn-outline-danger border-3" routerLink="/set/{{Carta.set}}">
-          {{Carta.set_name}}
-        </div>
-      </div>
-      <div class="row mt-3">
-
+    <div class="col-8 mt-2 ">
+      <h2 class="text-danger bg-light text-center p-3 ms-2 border border-danger border-3 fw-bold">{{Carta.name}}</h2>
+      <div class="row my-3">
         <!--Texto Carta-->
         <div class="col-8">
           <div class="card-text shadow bg-body rounded text-center p-3 border border-danger border-3">
@@ -45,41 +34,50 @@
         </div>
       </div>
     </div>
+  </div>
 
-    <div class="row m-3">
-      <!--Formato jugable-->
-      <div class="col">
-        <button class=" btn btn-light btn-outline-secondary dropdown-toggle border-4" type=" button" id="dropdownMenuButton1"
-          data-bs-toggle="dropdown" aria-expanded="false">
-          FORMATOS
-        </button>
-        <ul class="dropdown-menu p-3 text-center fw-bold" aria-labelledby="dropdownMenuButton1">
-          <li>Standard ({{Carta.legalities.standard}})</li>
-          <li>Historic ({{Carta.legalities.historic}})</li>
-          <li>Pioneer ({{Carta.legalities.pioneer}})</li>
-          <li>Modern ({{Carta.legalities.modern}})</li>
-          <li>Legacy ({{Carta.legalities.legacy}})</li>
-          <li>Pauper ({{Carta.legalities.pauper}})</li>
-          <li>Vintage ({{Carta.legalities.vintage}})</li>
-          <li>Commander ({{Carta.legalities.commander}})</li>
-        </ul>
-      </div>
+  <!--Botones-->
+  <div class="row m-3">
+    <!--Formato jugable-->
+    <div class="col me-1 btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+      aria-expanded="false">
+      FORMATOS
+    </div>
+    <div class="col-2 dropdown-menu text-center fw-bold" aria-labelledby="dropdownMenuButton1">
+      <ul class="list-group">
+        <li>Standard ({{Carta.legalities.standard}})</li>
+        <li>Historic ({{Carta.legalities.historic}})</li>
+        <li>Pioneer ({{Carta.legalities.pioneer}})</li>
+        <li>Modern ({{Carta.legalities.modern}})</li>
+        <li>Legacy ({{Carta.legalities.legacy}})</li>
+        <li>Pauper ({{Carta.legalities.pauper}})</li>
+        <li>Vintage ({{Carta.legalities.vintage}})</li>
+        <li>Commander ({{Carta.legalities.commander}})</li>
+      </ul>
+    </div>
 
-      <div class="col btn btn-light btn-outline-secondary ms-2 border-4" (click)="volver()">
-        VOLVER
-      </div>
-
-      <div class="col btn btn-light btn-outline-secondary ms-2 border-4" (click)="anadir()">
-        AÑADIR
-      </div>
-      <div class="col btn btn-light btn-outline-secondary ms-2 border-4" (click)="comprar()">
-        COMPRAR
-      </div>
+    <div class="col mx-2 text-center btn btn-dark btn-outline-light border-4 " routerLink="/set/{{Carta.set}}">
+      {{Carta.set_name}}
+    </div>
+    <div class="col mx-2 text-center btn btn-dark btn-outline-light border-4" (click)="anadir()">
+      AÑADIR
+    </div>
+    <div class="col mx-2 text-center btn btn-dark btn-outline-light border-4" (click)="comprar()">
+      COMPRAR
+    </div>
+    <div class="col mx-2 text-center btn btn-dark btn-outline-light border-4" (click)="volver()">
+      VOLVER
     </div>
   </div>
-</div>
 
-<!--Si el precio es nulo pone un N/A en su lugar-->
-<ng-template #precio>
-  <p #precio>N/A</p>
-</ng-template>
+
+
+
+
+
+
+
+  <!--Si el precio es nulo pone un N/A en su lugar-->
+  <ng-template #precio>
+    <p #precio>N/A</p>
+  </ng-template>

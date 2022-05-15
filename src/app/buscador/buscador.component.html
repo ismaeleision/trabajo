@@ -8,8 +8,8 @@
         </a>
       </li>
       <li class="list-group-item" *ngIf="this.palabra.length>2">
-        <a class="link-danger" routerLink="/buscar/{{this.palabra}}">
-          Ver Todas Las Coincidencias
+        <a class="link-danger" routerLink="/buscar/{{this.palabra}}" (click)="limpiar()">
+          Ver Más
         </a>
       </li>
     </ul>
