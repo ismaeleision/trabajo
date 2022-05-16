@@ -12,6 +12,8 @@ export class SetsComponent implements OnInit {
   Cartas:any= [];
   sets:any=[];
   setActual: String= "";
+  page:number = 0;
+  limite=20;
 
   constructor(private crudService: CrudService, private route: ActivatedRoute) { }
 
@@ -19,23 +21,34 @@ export class SetsComponent implements OnInit {
     this.crudService.GetSets().subscribe(res =>{
       this.sets = res;
       this.setActual = this.route.snapshot.url[1].toString();
-     
-      //Deberia encontrar el array en el que se encuentra el set correcto
-      for(let i=0; i<this.sets.length; i++){
-        if(this.sets[i]._id.set==this.setActual)
-        //Lo asigna a x para enviarlo a la funcion y poder imprimir bien el nombre
-         var x  = this.sets[i]._id.set_name;
-      }
-    this.CartasSet(this.setActual, x);
+     this.page = Number(this.route.snapshot.url[2]);
+     this.crudService.CartasSet(this.setActual, this.page).subscribe(res => {
+      this.Cartas = res;
+    });    
     });
-
   }
 
-  CartasSet(nombre:String, set:String){
-    this.setActual = set;
-    this.crudService.CartasSet(nombre).subscribe(res => {
+  CartasSet(nombre:String, page:any){
+    this.crudService.CartasSet(nombre, page).subscribe(res => {
       this.Cartas = res;
     });    
   }
 
+  paginaAnterior(){
+    this.page=this.page-1;
+    this.crudService.CartasSet(this.setActual,this.page).subscribe(res => {
+      this.Cartas = res;
+    });    
+  }
+
+  paginaPosterior(){
+    this.page=this.page+1;
+    this.crudService.CartasSet(this.setActual,this.page).subscribe(res => {
+      this.Cartas = res;
+    });    
+  }
+
+ recargar(){
+  this.ngOnInit();
+ }
 }

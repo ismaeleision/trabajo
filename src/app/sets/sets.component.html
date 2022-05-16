@@ -11,7 +11,7 @@
         </button>
         <ul class="dropdown-menu" aria-labelledby="sets">
           <li *ngFor="let set of sets">
-            <button class="dropdown-item text-danger" routerLink="/set/{{set._id.set}}">
+            <button class="dropdown-item text-danger" routerLink=" /set/{{set._id.set}}/0" (click)="recargar()">
               {{set._id.set_name}}
             </button>
           </li>
@@ -21,7 +21,7 @@
   </div>
 
   <!--Cartas-->
-  <div class="row">
+  <div class=" row">
     <div class="col" *ngFor="let carta of Cartas">
       <nav class="navbar navbar-expand-block">
         <div class="card" style="width: 16rem;">
@@ -33,5 +33,25 @@
       </nav>
     </div>
   </div>
+
+  <!--Paginador Prueba Automatico-->
+  <div class="row mb-5 p-5">
+    <div class="col-10">
+      <button class="btn btn-light text-danger btn-lg m-4" *ngIf="this.page > 0; else limiteInferior"
+        [routerLink]="['/set/setActual', this.page-1]" (click)="paginaAnterior()">&lt;</button>
+    </div>
+    <div class="col-2">
+      <button class="btn btn-light text-danger btn-lg m-4" *ngIf="Cartas.length >= 12; else limiteSuperior"
+        [routerLink]="['/set/'+setActual, this.page+1]" (click)="paginaPosterior()">
+        >
+      </button>
+    </div>
+  </div>
 </div>
 
+<ng-template #limiteInferior>
+  <button class="btn btn-light text-danger btn-lg m-4" disabled>&lt;</button>
+</ng-template>
+<ng-template #limiteSuperior>
+  <button class="btn btn-light text-danger btn-lg m-4" disabled>></button>
+</ng-template>

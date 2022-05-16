@@ -46,8 +46,8 @@ export class CrudService {
   }
 
   //Obtiene las cartas que compartan set
-  CartasSet(nombre: String){
-    return this.httpClient.get(`${this.REST_API}/carta/set/`+nombre);
+  CartasSet(nombre: String, page:any){
+    return this.httpClient.get(`${this.REST_API}/carta/set/`+nombre+`/`+page);
   }
 
   //Obtiene las 5 primeras coincidencias con la palabra en el buscador

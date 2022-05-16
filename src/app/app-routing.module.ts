@@ -13,7 +13,7 @@ import { MazoComponent } from './mazo/mazo.component';
 const routes: Routes = [
   { path: 'carta/page/:page', component: CartaComponent },
   { path: 'carta/id/:id', component: CartaIdComponent},
-  { path: 'set/:set', component: SetsComponent},
+  { path: 'set/:set/:page', component: SetsComponent},
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'buscar/:palabra', component: CoincidenciasComponent },
