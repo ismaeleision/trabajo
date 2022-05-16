@@ -40,17 +40,6 @@ export class CrudService {
    return this.httpClient.get(`${this.REST_API}/carta/id/${id}`);
   }
 
-  //Recoge el total de paginas que hay
-  GetCartasTotal(){
-    let API_URL = `${this.REST_API}/carta/total`;
-    return this.httpClient.get(API_URL, { headers: this.httpHeaders }).pipe(
-      map((res: any) => {
-        return res || {};
-      }),
-      catchError(this.handleError)
-    );
-  }
-
   //Recoge los diferentes sets que hay en las cartas
   GetSets(){
     return this.httpClient.get(`${this.REST_API}/carta/set`);

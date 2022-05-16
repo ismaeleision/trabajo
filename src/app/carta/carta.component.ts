@@ -11,7 +11,7 @@ export class CartaComponent implements OnInit {
 
   Cartas:any = [];
   page:number = 0;
-  total:number =  100;
+  limite:number =  100;
   sets:any = [];
   buscador:any = [];
 
@@ -21,9 +21,6 @@ export class CartaComponent implements OnInit {
     this.crudService.GetCartas(this.page).subscribe(res => {
       this.Cartas = res;
     });    
-    this.crudService.GetCartasTotal().subscribe(res =>{
-      this.total = res.imite;
-    });
     this.crudService.GetSets().subscribe(res =>{
       this.sets = res;
     });
@@ -33,7 +30,6 @@ export class CartaComponent implements OnInit {
     this.page=this.page-1;
     this.crudService.GetCartas(this.page).subscribe(res => {
       this.Cartas = res;
-      
     });    
   }
 

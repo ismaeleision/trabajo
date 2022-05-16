@@ -1,5 +1,9 @@
 <div class="container mt-5">
 
+  <div class="row">
+    <h2 class="text-danger bg-light text-center p-3 ms-2 border border-danger border-3 fw-bold">{{Carta.name}}</h2>
+  </div>
+
   <!--Imagen Carta-->
   <div class="row mt-5">
     <div class="col-2" style="width:18rem;">
@@ -7,14 +11,7 @@
     </div>
     <!--Nombre Carta-->
     <div class="col-8 mt-2 ">
-      <h2 class="text-danger bg-light text-center p-3 ms-2 border border-danger border-3 fw-bold">{{Carta.name}}</h2>
       <div class="row my-3">
-        <!--Texto Carta-->
-        <div class="col-8">
-          <div class="card-text shadow bg-body rounded text-center p-3 border border-danger border-3">
-            {{Carta.oracle_text}}
-          </div>
-        </div>
 
         <!--Precios-->
         <div class="col  shadow bg-body rounded text-center border border-danger border-3 h-75">
@@ -32,6 +29,14 @@
             USD Foil {{Carta.prices.usd_foil}}$
           </p>
         </div>
+
+        <!--Texto Carta-->
+        <div class="col-8">
+          <div class="card-text shadow bg-body rounded text-center p-3 border border-danger border-3">
+            {{Carta.oracle_text}}
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
@@ -70,14 +75,7 @@
     </div>
   </div>
 
-
-
-
-
-
-
-
   <!--Si el precio es nulo pone un N/A en su lugar-->
   <ng-template #precio>
-    <p #precio>N/A</p>
+    <p #precio>Sin registro</p>
   </ng-template>
