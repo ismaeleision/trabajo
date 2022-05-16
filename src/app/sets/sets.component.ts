@@ -48,6 +48,7 @@ export class SetsComponent implements OnInit {
     });    
   }
 
+  //No funciona correctamente deberia recargar la pagina con la nueva url
  recargar(){
   this.ngOnInit();
  }
