@@ -13,9 +13,7 @@ export class UserComponent implements OnInit {
   constructor(private crudService: CrudService, public sesion: SessionStorageService) { }
 
   ngOnInit(): void {
-    this.crudService.getMazos(this.sesion.retrieve('usuario')).subscribe(res => {
-      this.Mazos = res;
-    });    
+   
   }
 
   //tiene que recoger el nombre del mazo y crearlo con el email del usuario

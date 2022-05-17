@@ -17,7 +17,7 @@
             <a class="nav-link h5 text-danger" routerLink="/carta/page/0">CARTAS</a>
           </li>
           <li class="nav-item" *ngIf="this.sesion.retrieve('usuario');">
-            <a class="nav-link h5 text-danger" routerLink="/user/{{this.sesion.retrieve('usuario')}}">MAZOS</a>
+            <a class="nav-link h5 text-danger" routerLink="/user/{{this.sesion.retrieve('usuario')}}">Favoritos</a>
           </li>
           <li class="nav-item text-danger mt-2" *ngIf="this.sesion.retrieve('usuario'); else login;">
             Hola, {{this.sesion.retrieve("usuario")}}

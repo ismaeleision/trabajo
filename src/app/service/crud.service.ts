@@ -74,6 +74,10 @@ crearMazo(nombre:String, user_email:String){
     return this.httpClient.get(`${this.REST_API}/mazo/`+id);
   }
 
+  deleteMazo(id:String){
+    return this.httpClient.delete(`${this.REST_API}/mazo/`+id);
+  }
+
     // Error
   handleError(error: HttpErrorResponse) {
     let errorMessage = '';
