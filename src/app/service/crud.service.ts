@@ -60,8 +60,16 @@ export class CrudService {
     return this.httpClient.get(`${this.REST_API}/buscadorc/`+nombre);
   }
 
-  getMazo( id:String){
-    return this.httpClient.get(`${this.REST_API}/mazo/`+id);
+  crearMazo(nombre:String, usuario:String){
+    return this.httpClient.post(`${this.REST_API}/mazo/new`, {nombre, usuario});
+  }
+
+  getMazos(usuario:String){
+    return this.httpClient.get(`${this.REST_API}/mazo/`+usuario);
+  }
+
+  getMazo( id:String,usuario:String){
+    return this.httpClient.get(`${this.REST_API}/mazo/`+usuario+`/`+id);
   }
 
     // Error

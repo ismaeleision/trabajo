@@ -16,6 +16,7 @@ import { BuscadorComponent } from './buscador/buscador.component';
 import { CabeceraComponent } from './cabecera/cabecera.component';
 import { CoincidenciasComponent } from './coincidencias/coincidencias.component';
 import { UserComponent } from './user/user.component';
+import { MazoComponent } from './mazo/mazo.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { UserComponent } from './user/user.component';
     CabeceraComponent,
     CoincidenciasComponent,
     UserComponent,
+    MazoComponent,
   ],
   imports: [
     BrowserModule,
