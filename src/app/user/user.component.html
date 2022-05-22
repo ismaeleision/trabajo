@@ -1,10 +1,41 @@
 <div class="container mt-5">
   <h1 class="p-3 text-danger text-center mt-5 shadow bg-body rounded border border-danger">Mazos</h1>
+  <!--Botones para opciones-->
+  <div class="row">
+    <div class="col-2 btn btn-danger" data-bs-toggle="modal" data-bs-target="#CrearMazo">
+      Crear Mazo
+    </div>
+  </div>
+
   <!--Mazos-->
   <div class="row">
     <ul class="list-group col" *ngFor="let mazo of Mazos">
       <!--Al pincharle te muestra el mazo y cada carta que contiene-->
       <li class="list-group-item">{{mazo.nombre}}</li>
     </ul>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="CrearMazo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Rellena los campos</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Nombre del mazo</label>
+            <input type="text" class="form-control" id="nombre" (keyup)="nombreMazo($event)">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" (click)="nuevoMazo()">Crear Mazo</button>
+      </div>
+    </div>
   </div>
 </div>

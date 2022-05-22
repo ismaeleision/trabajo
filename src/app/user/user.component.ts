@@ -9,6 +9,7 @@ import {SessionStorageService} from 'ngx-webstorage';
 })
 export class UserComponent implements OnInit {
   Mazos:any =[];
+  nombre:String = "";
 
   constructor(private crudService: CrudService, public sesion: SessionStorageService) { }
 
@@ -18,7 +19,12 @@ export class UserComponent implements OnInit {
 
   //tiene que recoger el nombre del mazo y crearlo con el email del usuario
   nuevoMazo(){
-
+    console.log("Creando mazo "+this.nombre);
   }
 
+  //Carga los datos a el nombre
+  nombreMazo(event:any){
+    this.nombre = event.target.value;
+    console.log(this.nombre); 
+  }
 }
