@@ -64,7 +64,7 @@
     <div class="col mx-2 text-center btn btn-dark btn-outline-light border-4 " routerLink="/set/{{Carta.set}}">
       {{Carta.set_name}}
     </div>
-    <div class="col mx-2 text-center btn btn-dark btn-outline-light border-4" (click)="anadir()">
+    <div class="col mx-2 text-center btn btn-dark btn-outline-light border-4" data-bs-toggle="modal" data-bs-target="#CrearMazo">
       AÑADIR
     </div>
     <div class="col mx-2 text-center btn btn-dark btn-outline-light border-4" (click)="comprar()">
@@ -79,3 +79,23 @@
   <ng-template #precio>
     <p #precio>Sin registro</p>
   </ng-template>
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="CrearMazo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Rellena los campos</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <select class="form-select" aria-label="Elije Mazo">
+              <option *ngFor="let mazo of this.sesion.retrieve('mazos');" (click)="anadir(mazo.id)">{{mazo.nombre}}</option>
+            </select>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>

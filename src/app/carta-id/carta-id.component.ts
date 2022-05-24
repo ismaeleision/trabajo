@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CrudService } from '../service/crud.service';
 import { Location } from '@angular/common';
+import {SessionStorageService} from 'ngx-webstorage';
 
 @Component({
   selector: 'app-carta-id',
@@ -13,7 +14,7 @@ export class CartaIdComponent implements OnInit {
   id:String = "";
   Carta:any = [];
 
-  constructor(private route: ActivatedRoute, private crudService: CrudService, private location: Location) { }
+  constructor(private route: ActivatedRoute, private crudService: CrudService, private location: Location, public sesion: SessionStorageService) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.url[2].toString();
@@ -28,13 +29,16 @@ export class CartaIdComponent implements OnInit {
   }
 
   //Deberia de desviar la ruta a tcgplayer e idealmente que te pille tu cuenta y te la añada al carrito
-  //si no que te envie a la pagina de la carta
+  //si no que te envie a la pagina de la carta 
   comprar(){
-
+console.log("XD no esta hecho, vuelve a intentarlo más tarde");
   }
 
   //Añade a tu lista de seguimiento o a tus mazos creados
-  anadir(){
-    
+  anadir(id:String){
+    console.log(id);
+    this.crudService.anadirCartaMazo(id, this.Carta).subscribe(res => {
+     console.log("Carta Añadida al Mazo "+id);
+    });    
   }
 }

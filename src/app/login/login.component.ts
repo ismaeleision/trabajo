@@ -19,6 +19,7 @@ export class LoginComponent {
       //data es el token jwt
       this.sesion.store('token', data.token);
       this.sesion.store('usuario', data.email);
+      this.sesion.store('mazos', data.mazos);
       console.log(data);
     });
   }

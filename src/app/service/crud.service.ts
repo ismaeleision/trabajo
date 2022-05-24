@@ -72,6 +72,10 @@ export class CrudService {
     return this.httpClient.get(`${this.REST_API}/mazo/`+usuario+`/`+id);
   }
 
+  anadirCartaMazo(idMazo:String, carta:any){
+    return this.httpClient.post(`${this.REST_API}/mazo/`+idMazo, {carta});
+  }
+
   borrarMazo(id:String, usuario:String){
     return this.httpClient.post(`${this.REST_API}/mazo/delete/`+id, {usuario});
   }
