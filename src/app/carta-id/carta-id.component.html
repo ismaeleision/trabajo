@@ -90,11 +90,9 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form>
-            <select class="form-select" aria-label="Elije Mazo">
-              <option *ngFor="let mazo of this.sesion.retrieve('mazos');" (click)="anadir(mazo.id)">{{mazo.nombre}}</option>
-            </select>
-          </form>
+          <ul class="list-group">
+            <li class="list-group-item" *ngFor="let mazo of this.sesion.retrieve('mazos');" (click)="anadir(mazo._id)">{{mazo.nombre}}</li>
+          </ul>
         </div>
       </div>
     </div>

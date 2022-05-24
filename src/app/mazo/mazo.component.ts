@@ -22,6 +22,7 @@ export class MazoComponent implements OnInit {
     this.usuario = this.sesion.retrieve("usuario");
     this.crudService.getMazo(this.id, this.usuario).subscribe(data =>{
       this.Mazo= data;
+      console.log(this.Mazo);
     });
   }
 

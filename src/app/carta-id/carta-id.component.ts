@@ -36,9 +36,9 @@ console.log("XD no esta hecho, vuelve a intentarlo más tarde");
 
   //Añade a tu lista de seguimiento o a tus mazos creados
   anadir(id:String){
-    console.log(id);
+    console.log(this.Carta);
     this.crudService.anadirCartaMazo(id, this.Carta).subscribe(res => {
-     console.log("Carta Añadida al Mazo "+id);
+      console.log(res);
     });    
   }
 }
