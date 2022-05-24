@@ -1,1 +1,25 @@
-<p>mazo works!</p>
+<div class="container">
+  <!--Informacion del mazo, botones...-->
+  <div class="row bg-light border border-3 border-danger mt-3 p-3">
+    <div class="col text-center fw-bold">
+      {{this.Mazo.nombre}}
+      <div class="btn btn-dark" (click)="borrarMazo()">
+        Borrar Mazo
+      </div>
+    </div>
+  </div>
+
+  <!--ForEach para las cartas y boton para eliminar y quizas modificar cantidad-->
+  <div class="row">
+    <div class="col" *ngFor="let carta of Mazo.cartas">
+      <nav class="navbar navbar-expand-block">
+        <div class="card" style="width: 15rem;">
+          <!--Falla no esta cogiendo bien el id o algo asi-->
+          <a routerLink="/carta/id/{{carta._id}}">
+            <img *ngIf="carta.image_uris" src="{{carta.image_uris.normal}}" class="card-img-top">
+          </a>
+        </div>
+      </nav>
+    </div>
+  </div>
+</div>

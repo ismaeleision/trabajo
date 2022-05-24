@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'buscar/:palabra', component: CoincidenciasComponent },
   { path: 'user/:user_email', component: UserComponent },
-  {path: 'mazo/:usuario/:id', component: MazoComponent}
+  {path: 'mazo/:usuario/:id', component: MazoComponent},
 ];
 
 @NgModule({
