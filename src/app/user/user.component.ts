@@ -19,6 +19,7 @@ export class UserComponent implements OnInit {
     this.usuario = this.sesion.retrieve('usuario');
     this.crudService.getMazos(this.usuario).subscribe(data =>{
       this.Mazos= data;
+      this.sesion.store('mazos', data);
     });
   }
 
