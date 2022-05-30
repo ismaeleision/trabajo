@@ -56,8 +56,8 @@ export class CrudService {
   }
 
   //Obtiene todas las coincidencias con la palabra en el buscador
-  buscadorCoincidencias(nombre: String){
-    return this.httpClient.get(`${this.REST_API}/buscadorc/`+nombre);
+  buscadorCoincidencias(nombre: String, pagina:number){
+    return this.httpClient.get(`${this.REST_API}/buscadorc/`+nombre+`/`+pagina);
   }
 
   crearMazo(nombre:String, usuario:String){
