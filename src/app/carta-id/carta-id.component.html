@@ -2,6 +2,9 @@
 
   <div class="row">
     <h2 class="text-danger bg-light text-center p-3 ms-2 border border-danger border-3 fw-bold">{{Carta.name}}</h2>
+    <div class="col mx-2 text-center btn btn-dark btn-outline-light border-4" routerLink="/set/{{Carta.set}}/0">
+      Ver Más Cartas de la Colección: {{Carta.set_name}}
+    </div>
   </div>
 
   <!--Imagen Carta-->
@@ -12,7 +15,6 @@
     <!--Nombre Carta-->
     <div class="col-8 mt-2 ">
       <div class="row my-3">
-
         <!--Precios-->
         <div class="col  shadow bg-body rounded text-center border border-danger border-3 h-75">
           <p class="pt-3 fw-bold text-danger">Precios</p>
@@ -36,7 +38,24 @@
             {{Carta.oracle_text}}
           </div>
         </div>
-
+      </div>
+      <div class="row">
+        <div class="col me-1 btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          FORMATOS
+        </div>
+        <div class="col-2 dropdown-menu text-center fw-bold" aria-labelledby="dropdownMenuButton1">
+          <ul class="list-group">
+            <li class="list-group-item">Standard ({{Carta.legalities.standard}})</li>
+            <li class="list-group-item">Historic ({{Carta.legalities.historic}})</li>
+            <li class="list-group-item">Pioneer ({{Carta.legalities.pioneer}})</li>
+            <li class="list-group-item">Modern ({{Carta.legalities.modern}})</li>
+            <li class="list-group-item">Legacy ({{Carta.legalities.legacy}})</li>
+            <li class="list-group-item">Pauper ({{Carta.legalities.pauper}})</li>
+            <li class="list-group-item">Vintage ({{Carta.legalities.vintage}})</li>
+            <li class="list-group-item">Commander ({{Carta.legalities.commander}})</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -44,33 +63,28 @@
   <!--Botones-->
   <div class="row m-3">
     <!--Formato jugable-->
-    <div class="col me-1 btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
-      aria-expanded="false">
-      FORMATOS
-    </div>
-    <div class="col-2 dropdown-menu text-center fw-bold" aria-labelledby="dropdownMenuButton1">
-      <ul class="list-group">
-        <li class="list-group-item">Standard ({{Carta.legalities.standard}})</li>
-        <li class="list-group-item">Historic ({{Carta.legalities.historic}})</li>
-        <li class="list-group-item">Pioneer ({{Carta.legalities.pioneer}})</li>
-        <li class="list-group-item">Modern ({{Carta.legalities.modern}})</li>
-        <li class="list-group-item">Legacy ({{Carta.legalities.legacy}})</li>
-        <li class="list-group-item">Pauper ({{Carta.legalities.pauper}})</li>
-        <li class="list-group-item">Vintage ({{Carta.legalities.vintage}})</li>
-        <li class="list-group-item">Commander ({{Carta.legalities.commander}})</li>
-      </ul>
-    </div>
 
-    <div class="col mx-2 text-center btn btn-dark btn-outline-light border-4 " routerLink="/set/{{Carta.set}}">
-      {{Carta.set_name}}
-    </div>
     <div class="col mx-2 text-center btn btn-dark btn-outline-light border-4" data-bs-toggle="modal" data-bs-target="#CrearMazo">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bookmark-plus" viewBox="0 0 16 16">
+        <path
+          d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z" />
+        <path d="M8 4a.5.5 0 0 1 .5.5V6H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V7H6a.5.5 0 0 1 0-1h1.5V4.5A.5.5 0 0 1 8 4z" />
+      </svg>
       AÑADIR
     </div>
     <div class="col mx-2 text-center btn btn-dark btn-outline-light border-4" (click)="comprar()">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+        <path
+          d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+      </svg>
       COMPRAR
     </div>
     <div class="col mx-2 text-center btn btn-dark btn-outline-light border-4" (click)="volver()">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-return-left"
+        viewBox="0 0 16 16">
+        <path fill-rule="evenodd"
+          d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z" />
+      </svg>
       VOLVER
     </div>
   </div>
@@ -86,7 +100,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Rellena los campos</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Elige el mazo</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
