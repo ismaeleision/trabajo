@@ -36,4 +36,12 @@ export class CoincidenciasComponent implements OnInit {
       this.Cartas = res;
     });    
   }
+
+  //Hace falta que recargue el objeto cartas sin pasar por el ngOnInit
+  pagina(numero: number){
+    this.page = numero;
+    this.crudService.buscadorCoincidencias(this.palabra, this.page).subscribe(res => {
+      this.Cartas = res;
+    });
+  }
 }
