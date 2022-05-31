@@ -52,4 +52,11 @@ export class SetsComponent implements OnInit {
  recargar(){
   this.ngOnInit();
  }
+
+ pagina(numero: number){
+  this.page = numero;
+  this.crudService.CartasSet(this.setActual, this.page).subscribe(res => {
+    this.Cartas = res;
+  });
+}
 }
