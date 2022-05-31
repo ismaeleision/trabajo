@@ -13,54 +13,36 @@
       </nav>
     </div>
   </div>
-</div>
 
-<!--Paginador Prueba Automatico-->
-<div class="row mb-5 p-5">
-  <div class="col">
-    <button class="btn btn-light text-danger btn-lg m-2" *ngIf="this.page>0; else limiteInferior"
-      [routerLink]="['/buscador/'+this.palabra+'/', this.page-1]" (click)="paginaAnterior()">&lt;</button>
-  </div>
 
-  <div class="col">
-    <button class="btn btn-light text-danger btn-lg m-2" routerLink="/buscador/{{this.palabra}}/1" (click)="pagina(1)">1</button>
-  </div>
-  <div class="col">
-    <button class="btn btn-light text-danger btn-lg m-2" routerLink="/buscador/{{this.palabra}}/2" (click)="pagina(2)">2</button>
-  </div>
-  <div class="col">
-    <button class="btn btn-light text-danger btn-lg m-2" routerLink="/buscador/{{this.palabra}}/3" (click)="pagina(3)">3</button>
-  </div>
-  <div class="col">
-    <button class="btn btn-light text-danger btn-lg m-2" routerLink="/buscador/{{this.palabra}}/4" (click)="pagina(4)">4</button>
-  </div>
-  <div class="col">
-    <button class="btn btn-light text-danger btn-lg m-2" routerLink="/buscador/{{this.palabra}}/5" (click)="pagina(5)">5</button>
-  </div>
-  <div class="col">
-    <button class="btn btn-light text-danger btn-lg m-2" routerLink="/buscador/{{this.palabra}}/6" (click)="pagina(6)">6</button>
-  </div>
-  <div class="col">
-    <button class="btn btn-light text-danger btn-lg m-2" routerLink="/buscador/{{this.palabra}}/7" (click)="pagina(7)">7</button>
-  </div>
-  <div class="col">
-    <button class="btn btn-light text-danger btn-lg m-2" routerLink="/buscador/{{this.palabra}}/8" (click)="pagina(8)">8</button>
-  </div>
-  <div class="col">
-    <button class="btn btn-light text-danger btn-lg m-2" routerLink="/buscador/{{this.palabra}}/9" (click)="pagina(9)">9</button>
-  </div>
-  <div class="col">
-    <button class="btn btn-light text-danger btn-lg m-2" routerLink="/buscador/{{this.palabra}}/10" (click)="pagina(10)">10</button>
-  </div>
+  <!--Paginador Prueba Automatico-->
+  <div class="row mb-5 p-5">
+    <div class="col">
+      <button class="btn btn-light text-danger btn-lg m-2" *ngIf="this.page>0; else limiteInferior"
+        [routerLink]="['/buscador/'+this.palabra+'/', this.page-1]" (click)="paginaAnterior()">&lt;</button>
+    </div>
 
-  <div class="col">
-    <button class="btn btn-light text-danger btn-lg m-2" *ngIf="this.page<=(this.limite-1); else limiteSuperior"
-      [routerLink]="['/buscador/'+this.palabra+'/', this.page+1]" (click)="paginaPosterior()">
-      >
-    </button>
+    <div class="col">
+      <button class="btn btn-light text-danger btn-lg m-2" routerLink="/buscador/{{this.palabra}}/{{this.page-1}}"
+        (click)="pagina(this.page-1)" *ngIf="this.page>=1">{{this.page-1}}</button>
+    </div>
+    <div class="col">
+      <button class="btn btn-light text-danger btn-lg m-2" routerLink="/buscador/{{this.palabra}}/{{this.page}}" (click)="pagina(this.page)"
+        disabled>{{this.page}}</button>
+    </div>
+    <div class="col">
+      <button class="btn btn-light text-danger btn-lg m-2" routerLink="/buscador/{{this.palabra}}/{{this.page+1}}"
+        (click)="pagina(this.page+1)" *ngIf="this.Cartas.length>=12">{{this.page+1}}</button>
+    </div>
+
+    <div class="col">
+      <button class="btn btn-light text-danger btn-lg m-2" *ngIf="this.page<=(this.limite-1); else limiteSuperior"
+        [routerLink]="['/buscador/'+this.palabra+'/', this.page+1]" (click)="paginaPosterior()">
+        >
+      </button>
+    </div>
   </div>
 </div>
-
 <ng-template #limiteInferior>
   <button class="btn btn-light text-danger btn-lg m-2" disabled>&lt;</button>
 </ng-template>
