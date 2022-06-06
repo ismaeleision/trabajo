@@ -1,6 +1,24 @@
 <div class="container mt-5">
-  <h1 class="p-3 text-danger text-center mt-5 shadow bg-body rounded border border-danger">{{setActual}}</h1>
+  <h1 class="p-3 text-danger text-center mt-5 shadow bg-body rounded border border-danger border border-3">{{setReal}}</h1>
 
+  <!--Desplegable Sets-->
+  <div class="row">
+    <div class="col">
+      <div class="dropdown mt-4 mb-4">
+        <button class="btn btn-light btn-outline-danger dropdown-toggle" type="button" id="sets" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          Ediciones
+        </button>
+        <ul class="dropdown-menu dropdown-scrollbar" aria-labelledby=" sets">
+          <li *ngFor="let set of sets">
+            <button class="dropdown-item text-danger" routerLink=" /set/{{set._id.set}}/0" (click)="recargar()">
+              {{set._id.set_name}}
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
   <!--Paginador Prueba Automatico-->
   <div class="row p-2">
@@ -43,25 +61,6 @@
     </div>
   </div>
 
-  <!--Desplegable Sets-->
-  <div class="row">
-    <div class="col">
-      <div class="dropdown mt-4 mb-4">
-        <button class="btn btn-light btn-outline-danger dropdown-toggle" type="button" id="sets" data-bs-toggle="dropdown"
-          aria-expanded="false">
-          Ediciones
-        </button>
-        <ul class="dropdown-menu dropdown-scrollbar" aria-labelledby=" sets">
-          <li *ngFor="let set of sets">
-            <button class="dropdown-item text-danger" routerLink=" /set/{{set._id.set}}/0" (click)="recargar()">
-              {{set._id.set_name}}
-            </button>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
   <!--Cartas-->
   <div class=" row">
     <div class="col" *ngFor="let carta of Cartas">
@@ -69,7 +68,7 @@
         <div class="card" style="width: 16rem;">
           <!--Falla no esta cogiendo bien el id o algo asi-->
           <a routerLink="/carta/id/{{carta._id}}">
-            <img *ngIf="carta.image_uris" src="{{carta.image_uris.normal}}" class="card-img-top">
+            <img *ngIf="carta.image_uris; else reverso" src="{{carta.image_uris.normal}}" class="card-img-top">
           </a>
         </div>
       </nav>
@@ -103,7 +102,9 @@
     <div class="col">
       <button class="btn btn-light text-danger btn-lg m-2 rounded-pill" routerLink="/set/{{this.setActual}}/{{this.page+1}}"
         (click)="pagina(this.page+1)" *ngIf="this.Cartas.length>=12" data-bs-toggle="tooltip" data-bs-placement="left"
-        title="Ir a la página {{this.page+1}}">{{this.page+1}}</button>
+        title="Ir a la página {{this.page+1}}">
+        {{this.page+1}}
+      </button>
     </div>
     <div class="col">
       <button class="btn btn-light text-danger btn-lg m-2 disabled rounded-pill" *ngIf="this.Cartas.length>=12">...</button>
@@ -123,4 +124,7 @@
 </ng-template>
 <ng-template #limiteSuperior>
   <button class="btn btn-light text-danger btn-lg m-2 rounded-pill" disabled>></button>
+</ng-template>
+<ng-template #reverso>
+  <img src="../../assets/reverso.jpg" class="card-img-top">
 </ng-template>

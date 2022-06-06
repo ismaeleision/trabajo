@@ -11,7 +11,7 @@
   <!--Imagen Carta-->
   <div class="row mt-3">
     <div class="col-2" style="width:18rem;">
-      <img *ngIf="Carta.image_uris" src="{{Carta.image_uris.normal}}" class="card-img-top">
+      <img *ngIf="Carta.image_uris; else reverso" src="{{Carta.image_uris.normal}}" class="card-img-top">
     </div>
     <!--Nombre Carta-->
     <div class="col-8 mt-2 ">
@@ -91,6 +91,9 @@
   <ng-template #precio>
     <p #precio>Sin registro</p>
   </ng-template>
+  <ng-template #reverso>
+    <img src="../../assets/reverso.jpg" class="card-img-top">
+  </ng-template>
 
 
   <!-- Modal -->
@@ -104,7 +107,8 @@
         <div class="modal-body">
           <ul class="list-group">
             <li class="list-group-item" *ngFor="let mazo of this.sesion.retrieve('mazos');" (click)="anadir(mazo._id)">
-              {{mazo.nombre}}</li>
+              {{mazo.nombre}}
+            </li>
           </ul>
         </div>
       </div>

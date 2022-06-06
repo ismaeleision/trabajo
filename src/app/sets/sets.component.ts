@@ -12,6 +12,7 @@ export class SetsComponent implements OnInit {
   Cartas:any= [];
   sets:any=[];
   setActual: String= "";
+  setReal: String = "";
   page:number = 0;
   limite=20;
 
@@ -25,6 +26,12 @@ export class SetsComponent implements OnInit {
      this.crudService.CartasSet(this.setActual, this.page).subscribe(res => {
       this.Cartas = res;
     });    
+    //Bucle para buscar el nombre del set en vez de la nomenclatura
+    for(let i=0; i<this.sets.length; i++){
+      if (this.sets[i]._id.set==this.setActual){
+       this.setReal = this.sets[i]._id.set_name;
+      }
+    }
     });
   }
 
