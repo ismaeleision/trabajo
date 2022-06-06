@@ -2,3 +2,8 @@
 
 html, body { height: 100%;  background-color: #363636;}
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.dropdown-scrollbar{
+  max-height: 400px;
+  overflow-x: hidden;
+  overflow-y: auto;
+ }
