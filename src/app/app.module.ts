@@ -17,6 +17,7 @@ import { CabeceraComponent } from './cabecera/cabecera.component';
 import { CoincidenciasComponent } from './coincidencias/coincidencias.component';
 import { UserComponent } from './user/user.component';
 import { MazoComponent } from './mazo/mazo.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { MazoComponent } from './mazo/mazo.component';
     CoincidenciasComponent,
     UserComponent,
     MazoComponent,
+    PagenotfoundComponent,
   ],
   imports: [
     BrowserModule,
