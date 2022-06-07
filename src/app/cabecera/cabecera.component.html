@@ -11,15 +11,18 @@
       <div class="collapse navbar-collapse" id="menu">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link h5 text-danger" routerLink="/home" data-bs-toggle="tooltip"
-            data-bs-placement="left" title="Home">HOME</a>
+            <a class="nav-link h5 text-danger" routerLink="/home" data-bs-toggle="tooltip" data-bs-placement="left" title="Home">HOME</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link h5 text-danger" routerLink="/carta/page/0" data-bs-toggle="tooltip"
-            data-bs-placement="left" title="Ver más cartas">CARTAS</a>
+            <a class="nav-link h5 text-danger" routerLink="/carta/page/0" data-bs-toggle="tooltip" data-bs-placement="left"
+              title="Ver más cartas">CARTAS</a>
           </li>
-          <li class="nav-item" *ngIf="this.sesion.retrieve('usuario');" data-bs-toggle="tooltip"
-          data-bs-placement="left" title="Ver mis mazos creados">
+          <li class="nav-item">
+            <a class="nav-link h5 text-danger" routerLink="/carta/id/" data-bs-toggle="tooltip" data-bs-placement="left"
+              title="Ver carta aleatoria">RANDOM</a>
+          </li>
+          <li class="nav-item" *ngIf="this.sesion.retrieve('usuario');" data-bs-toggle="tooltip" data-bs-placement="left"
+            title="Ver mis mazos creados">
             <a class="nav-link h5 text-danger" routerLink="/user/{{this.sesion.retrieve('usuario')}}">MAZOS</a>
           </li>
           <li class="nav-item text-danger mt-2" *ngIf="this.sesion.retrieve('usuario'); else login;">
