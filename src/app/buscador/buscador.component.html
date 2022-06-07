@@ -1,5 +1,6 @@
 <div class="container" style="z-index: 1; position: relative;">
-  <input type="text" class="form-control border border-danger border-2" placeholder="Buscador" (keyup)="buscador($event)">
+  <input type="text" class="form-control border border-danger border-2" placeholder="Buscador" (keyup)="buscador($event)"
+    [(ngModel)]="busca" name="busca">
   <div class="row">
     <ul class="list-group" style="z-index: 5;  position:absolute;">
       <li class="list-group-item " *ngFor="let carta of Cartas">

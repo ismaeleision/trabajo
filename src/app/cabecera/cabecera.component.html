@@ -18,8 +18,8 @@
               title="Ver más cartas">CARTAS</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link h5 text-danger" routerLink="/carta/id/" data-bs-toggle="tooltip" data-bs-placement="left"
-              title="Ver carta aleatoria">RANDOM</a>
+            <a class="nav-link h5 text-danger" (click)="limpiar()" data-bs-toggle="tooltip"
+              data-bs-placement="left" title="Ver carta aleatoria">RANDOM</a>
           </li>
           <li class="nav-item" *ngIf="this.sesion.retrieve('usuario');" data-bs-toggle="tooltip" data-bs-placement="left"
             title="Ver mis mazos creados">

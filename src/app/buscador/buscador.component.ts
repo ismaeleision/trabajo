@@ -10,12 +10,13 @@ export class BuscadorComponent implements OnInit {
 
   palabra:String = "";
   Cartas:any = [];
+  busca:String="";
  
-
   constructor(private crudService: CrudService) { }
 
   ngOnInit(): void {
     this.palabra= "";
+    this.Cartas= [];
   }
 
   //Si la palabra es mas larga de 4 letras comienza a lanzar peticiones de busqueda
@@ -30,8 +31,9 @@ export class BuscadorComponent implements OnInit {
     }
   }
 
+  //limpia el input del buscador y redirige correctamente
   limpiar(){
-    this.palabra="";
-    this.Cartas = [];
+    this.ngOnInit();
+    this.busca="";
   }
 }

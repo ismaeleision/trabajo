@@ -83,6 +83,9 @@ export class CrudService {
   getTop(){
     return this.httpClient.get(`${this.REST_API}/carta/topvalue`); 
   }
+  getRandom(){
+    return this.httpClient.get(`${this.REST_API}/random`); 
+  }
 
     // Error
   handleError(error: HttpErrorResponse) {
