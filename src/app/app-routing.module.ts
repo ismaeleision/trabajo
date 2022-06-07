@@ -9,6 +9,7 @@ import { CoincidenciasComponent } from './coincidencias/coincidencias.component'
 import { UserComponent } from './user/user.component';
 import { MazoComponent } from './mazo/mazo.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   { path: 'carta/page/:page', component: CartaComponent },
@@ -20,7 +21,9 @@ const routes: Routes = [
   { path: 'buscador/:palabra/:page', component: CoincidenciasComponent },
   { path: 'user/:user_email', component: UserComponent },
   {path: 'mazo/:usuario/:id', component: MazoComponent},
-  { path: '**', pathMatch: 'full', component: PagenotfoundComponent },
+  { path: '**', pathMatch: 'full', component: HomeComponent },
+  //{ path: 'home', component: HomeComponent},
+  //{ path: '**', pathMatch: 'full', component: PagenotfoundComponent },
 ];
 
 @NgModule({

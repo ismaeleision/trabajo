@@ -80,6 +80,10 @@ export class CrudService {
     return this.httpClient.post(`${this.REST_API}/mazo/delete/`+id, {usuario});
   }
 
+  getTop(){
+    return this.httpClient.get(`${this.REST_API}/carta/topvalue`); 
+  }
+
     // Error
   handleError(error: HttpErrorResponse) {
     let errorMessage = '';
