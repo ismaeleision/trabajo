@@ -27,8 +27,8 @@ deslogueo(){
 
 limpiar(){
   this.ngOnInit();
-  this.router.navigated = false;
-  this.router.navigate(['/carta/id/'+this.random._id]);
+  this.router.navigateByUrl('/', {skipLocationChange: true}).then(() =>
+  this.router.navigate(['/carta/id/'+this.random._id]));
 // if you need to scroll back to top, here is the right place
  //window.scrollTo(0, 0);
 }
