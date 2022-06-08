@@ -2,10 +2,6 @@
 
   <div class="row">
     <h2 class="text-danger bg-light text-center p-3 ms-2 border border-danger border-3 fw-bold">{{Carta.name}}</h2>
-    <div class="col-3"></div>
-    <div class="col-6 mx-2 text-center btn btn-light btn-outline-dark border-4 rounded-pill" routerLink="/set/{{Carta.set}}/0">
-      Ver Más Cartas de la Colección: {{Carta.set_name}}
-    </div>
   </div>
 
   <!--Imagen Carta-->
@@ -16,11 +12,6 @@
     <!--Nombre Carta-->
     <div class="col-8 mt-2 ">
       <div class="row my-3">
-        <!--Espacio para el grafico-->
-        <div class="col  shadow bg-body rounded text-center border border-danger border-3 h-75">
-          
-          
-        </div>
         <!--Precios-->
         <div class="col  shadow bg-body rounded text-center border border-danger border-3 h-75">
           <p class="pt-3 fw-bold text-danger">Precios</p>
@@ -46,6 +37,14 @@
           </div>
         </div>
       </div>
+      <div class="row ">
+        <div class="col p-3  shadow bg-body rounded text-center border border-danger border-3 h-75">
+          Ver más cartas de la colección<strong> {{Carta.set_name}}</strong>:
+          <div class="col-2 mx-2 text-center btn btn-light btn-outline-dark border-4 rounded-pill" routerLink="/set/{{Carta.set}}/0">
+            click aquí
+          </div>
+        </div>
+      </div>
       <div class="row bg-light border border-danger border-3 p-3">
         <p class="fw-bold text-danger text-center">FORMATOS</p>
         <div class="col-3">Standard-{{Carta.legalities.standard}}</div>
@@ -64,7 +63,7 @@
   <div class="row m-3">
     <!--Formato jugable-->
 
-    <div class="col mx-2 text-center btn btn-dark btn-outline-light border-4 rounded-pill" data-bs-toggle="modal"
+    <div class="col-2 mx-2 text-center btn btn-dark btn-outline-light border-4 rounded-pill" data-bs-toggle="modal"
       data-bs-target="#CrearMazo">
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bookmark-plus" viewBox="0 0 16 16">
         <path
@@ -73,7 +72,7 @@
       </svg>
       AÑADIR
     </div>
-    <div class="col mx-2 text-center btn btn-dark btn-outline-light border-4 rounded-pill" (click)="comprar()" data-bs-toggle="tooltip"
+    <div class="col-2 mx-2 text-center btn btn-dark btn-outline-light border-4 rounded-pill" (click)="comprar()" data-bs-toggle="tooltip"
       data-bs-placement="left" title="Comprar carta">
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
         <path
@@ -81,7 +80,7 @@
       </svg>
       COMPRAR
     </div>
-    <div class="col mx-2 text-center btn btn-dark btn-outline-light border-4 rounded-pill" (click)="volver()" data-bs-toggle="tooltip"
+    <div class="col-2 mx-2 text-center btn btn-dark btn-outline-light border-4 rounded-pill" (click)="volver()" data-bs-toggle="tooltip"
       data-bs-placement="left" title="Volver a la pagina anterior">
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-return-left"
         viewBox="0 0 16 16">

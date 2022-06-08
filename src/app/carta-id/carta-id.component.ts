@@ -5,7 +5,6 @@ import { Location } from '@angular/common';
 import {SessionStorageService} from 'ngx-webstorage';
 
 
-
 @Component({
   selector: 'app-carta-id',
   templateUrl: './carta-id.component.html',
