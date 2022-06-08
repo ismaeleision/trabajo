@@ -103,6 +103,10 @@ export class CrudService {
     return this.httpClient.get(`${this.REST_API}/grafico/`+id); 
   }
 
+  updateCarta(id:String, precio:any){
+    return this.httpClient.post(`${this.REST_API}/carta/update/`+id, {precio}); 
+  }
+
     // Error
   handleError(error: HttpErrorResponse) {
     let errorMessage = '';
