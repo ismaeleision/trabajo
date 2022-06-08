@@ -3,7 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { CrudService } from '../service/crud.service';
 import { Location } from '@angular/common';
 import {SessionStorageService} from 'ngx-webstorage';
-import { KeyedWrite } from '@angular/compiler';
+
+
 
 @Component({
   selector: 'app-carta-id',
@@ -14,6 +15,8 @@ export class CartaIdComponent implements OnInit {
 
   id:String = "";
   Carta:any = [];
+  grafico:any = [];
+
 
   constructor(private route: ActivatedRoute, private crudService: CrudService, private location: Location, public sesion: SessionStorageService) { }
 
@@ -23,7 +26,8 @@ export class CartaIdComponent implements OnInit {
       this.Carta = res;
 
       this.crudService.getGrafico(this.id).subscribe(res =>{
-        console.log("Buscamos el grafico");
+       this.grafico = res;
+
         let date = new Date;
         let day = date.getUTCDate();
         let month = date.getUTCMonth() + 1
@@ -37,15 +41,14 @@ export class CartaIdComponent implements OnInit {
                 let values= Object.values(res);
                 let keys = Object.keys(res);
                 //Si coincide la clave con precios es la posicion donde estan los precios
-                for(let i=0; i<keys.length; i++){
+                for(let i=0; i<=keys.length; i++){
                   if(keys[i]=="prices"){
                     let date = new Date;
                     let day = date.getUTCDate();
                     let month = date.getUTCMonth() + 1
                     let valor = { "date": day+'/'+month, "precio": values[i]};
-                    console.log(values[i]);
                     this.crudService.updateCarta(this.id, values[i]).subscribe(res => {
-                      console.log("Actualizando carta");
+                      console.log("Actualizando carta"+res);
                     });
                     this.crudService.updatePrecio(this.id, valor).subscribe(res => {
                       console.log(res);
