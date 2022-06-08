@@ -83,8 +83,24 @@ export class CrudService {
   getTop(){
     return this.httpClient.get(`${this.REST_API}/carta/topvalue`); 
   }
+
   getRandom(){
     return this.httpClient.get(`${this.REST_API}/random`); 
+  }
+
+  //recoge el precio actualizado de scryfall
+  getPrecio(id:String){
+    return this.httpClient.get('https://api.scryfall.com/cards/'+id); 
+  }
+
+  //Añade el nuevo precio al array de precios en graficos
+  updatePrecio(id:String, precio:any){
+    return this.httpClient.post(`${this.REST_API}/grafico/`+id, {precio}); 
+  }
+
+  //Recoge los datos que se usaran para la grafica
+  getGrafico(id:String){
+    return this.httpClient.get(`${this.REST_API}/grafico/`+id); 
   }
 
     // Error

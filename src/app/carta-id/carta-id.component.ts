@@ -20,6 +20,40 @@ export class CartaIdComponent implements OnInit {
     this.id = this.route.snapshot.url[2].toString();
     this.crudService.GetCarta(this.id).subscribe(res => {
       this.Carta = res;
+      this.crudService.getGrafico(this.id).subscribe(res =>{
+        let date = new Date;
+        let day = date.getUTCDate();
+        let month = date.getUTCMonth() + 1
+        let dia = day+"/"+month;
+        let values= Object.values(res);
+        let keys = Object.keys(res);
+        //Si coincide la clave con precios es la posicion donde estan los precios
+        for(let i=0; i<keys.length; i++){
+          if(keys[i]=="date"){
+            if (dia != values[i]){
+         
+       
+      this.crudService.getPrecio(this.Carta.id).subscribe(res => {
+        //Parte los valores por un lado y las claves por otro para poder manipular el objeto que recogemos de la peticion https
+        let values= Object.values(res);
+        let keys = Object.keys(res);
+        //Si coincide la clave con precios es la posicion donde estan los precios
+        for(let i=0; i<keys.length; i++){
+          if(keys[i]=="prices"){
+            let date = new Date;
+            let day = date.getUTCDate();
+            let month = date.getUTCMonth() + 1
+            let valor = { "date": day+'/'+month, "precio": values[i]};
+            this.crudService.updatePrecio(this.id, valor).subscribe(res => {
+              console.log(res);
+            });
+          }
+        }
+      });
+    }
+  }
+    }
+    });
     });    
   }
 
