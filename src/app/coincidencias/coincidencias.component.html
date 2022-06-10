@@ -1,33 +1,33 @@
 <div class="container">
-  <h1 class="p-3 text-danger text-center mt-5 shadow bg-body rounded border border-danger border-3">Resultados:
+  <h1 class="p-3 text-danger text-center mt-3 shadow bg-body rounded border border-danger border-3">Resultados:
     {{this.palabra}}</h1>
 
   <!--Paginador Prueba Automatico-->
-  <div class="row p-2">
+  <div class="row py-2">
     <div class="col">
-      <button class="btn btn-light text-danger btn-lg m-2 rounded-pill" *ngIf="this.page>0; else limiteInferior"
+      <button class="btn btn-light text-danger rounded-pill" *ngIf="this.page>0; else limiteInferior"
         [routerLink]="['/buscador/'+this.palabra+'/', this.page-1]" (click)="paginaAnterior()">&lt;</button>
     </div>
     <div class="col">
-      <button class="btn btn-light text-danger btn-lg m-2 disabled rounded-pill" *ngIf="this.page>=1">...</button>
+      <button class="btn btn-light text-danger disabled rounded-pill" *ngIf="this.page>=1">...</button>
     </div>
     <div class="col">
-      <button class="btn btn-light text-danger btn-lg m-2 rounded-pill" routerLink="/buscador/{{this.palabra}}/{{this.page-1}}"
+      <button class="btn btn-light text-danger rounded-pill" routerLink="/buscador/{{this.palabra}}/{{this.page-1}}"
         (click)="pagina(this.page-1)" *ngIf="this.page>=1">{{this.page-1}}</button>
     </div>
     <div class="col">
-      <button class="btn btn-light text-danger btn-lg m-2 rounded-pill" routerLink="/buscador/{{this.palabra}}/{{this.page}}"
+      <button class="btn btn-light text-danger rounded-pill" routerLink="/buscador/{{this.palabra}}/{{this.page}}"
         disabled>{{this.page}}</button>
     </div>
     <div class="col">
-      <button class="btn btn-light text-danger btn-lg m-2 rounded-pill" routerLink="/buscador/{{this.palabra}}/{{this.page+1}}"
+      <button class="btn btn-light text-danger rounded-pill" routerLink="/buscador/{{this.palabra}}/{{this.page+1}}"
         (click)="pagina(this.page+1)" *ngIf="this.Cartas.length>=12">{{this.page+1}}</button>
     </div>
     <div class="col">
-      <button class="btn btn-light text-danger btn-lg m-2 disabled rounded-pill" *ngIf="this.Cartas.length>=12">...</button>
+      <button class="btn btn-light text-danger disabled rounded-pill" *ngIf="this.Cartas.length>=12">...</button>
     </div>
     <div class="col">
-      <button class="btn btn-light text-danger btn-lg m-2 rounded-pill" *ngIf="this.page<=(this.limite-1); else limiteSuperior"
+      <button class="btn btn-light text-danger rounded-pill" *ngIf="this.page<=(this.limite-1); else limiteSuperior"
         [routerLink]="['/buscador/'+this.palabra+'/', this.page+1]" (click)="paginaPosterior()">
         >
       </button>
@@ -35,44 +35,39 @@
   </div>
 
   <div class="row">
-    <div class="col" *ngFor="let carta of Cartas">
-      <nav class="navbar navbar-expand-block">
-        <div class="card" style="width: 15rem;">
+    <div class="col-8 col-md-6 col-lg-4 col-xl-3 mx-auto p-1" *ngFor="let carta of Cartas">
           <a routerLink="/carta/id/{{carta._id}}">
             <img *ngIf="carta.image_uris; else reverso" src="{{carta.image_uris.normal}}" class="card-img-top">
           </a>
-        </div>
-      </nav>
     </div>
   </div>
-
 
   <!--Paginador Prueba Automatico-->
   <div class="row p-2">
     <div class="col">
-      <button class="btn btn-light text-danger btn-lg m-2 rounded-pill" *ngIf="this.page>0; else limiteInferior"
+      <button class="btn btn-light text-danger rounded-pill" *ngIf="this.page>0; else limiteInferior"
         [routerLink]="['/buscador/'+this.palabra+'/', this.page-1]" (click)="paginaAnterior()">&lt;</button>
     </div>
     <div class="col">
-      <button class="btn btn-light text-danger btn-lg m-2 disabled rounded-pill" *ngIf="this.page>=1">...</button>
+      <button class="btn btn-light text-danger disabled rounded-pill" *ngIf="this.page>=1">...</button>
     </div>
     <div class="col">
-      <button class="btn btn-light text-danger btn-lg m-2 rounded-pill" routerLink="/buscador/{{this.palabra}}/{{this.page-1}}"
+      <button class="btn btn-light text-danger  rounded-pill" routerLink="/buscador/{{this.palabra}}/{{this.page-1}}"
         (click)="pagina(this.page-1)" *ngIf="this.page>=1">{{this.page-1}}</button>
     </div>
     <div class="col">
-      <button class="btn btn-light text-danger btn-lg m-2 rounded-pill" routerLink="/buscador/{{this.palabra}}/{{this.page}}"
+      <button class="btn btn-light text-danger rounded-pill" routerLink="/buscador/{{this.palabra}}/{{this.page}}"
         disabled>{{this.page}}</button>
     </div>
     <div class="col">
-      <button class="btn btn-light text-danger btn-lg m-2 rounded-pill" routerLink="/buscador/{{this.palabra}}/{{this.page+1}}"
+      <button class="btn btn-light text-danger rounded-pill" routerLink="/buscador/{{this.palabra}}/{{this.page+1}}"
         (click)="pagina(this.page+1)" *ngIf="this.Cartas.length>=12">{{this.page+1}}</button>
     </div>
     <div class="col">
-      <button class="btn btn-light text-danger btn-lg m-2 disabled rounded-pill" *ngIf="this.Cartas.length>=12">...</button>
+      <button class="btn btn-light text-danger disabled rounded-pill" *ngIf="this.Cartas.length>=12">...</button>
     </div>
     <div class="col">
-      <button class="btn btn-light text-danger btn-lg m-2 rounded-pill" *ngIf="this.page<=(this.limite-1); else limiteSuperior"
+      <button class="btn btn-light text-danger rounded-pill" *ngIf="this.page<=(this.limite-1); else limiteSuperior"
         [routerLink]="['/buscador/'+this.palabra+'/', this.page+1]" (click)="paginaPosterior()">
         >
       </button>
@@ -80,10 +75,10 @@
   </div>
 
   <ng-template #limiteInferior>
-    <button class="btn btn-light text-danger btn-lg m-2 rounded-pill" disabled>&lt;</button>
+    <button class="btn btn-light text-danger rounded-pill" disabled>&lt;</button>
   </ng-template>
   <ng-template #limiteSuperior>
-    <button class="btn btn-light text-danger btn-lg m-2 rounded-pill" disabled>></button>
+    <button class="btn btn-light text-danger rounded-pill" disabled>></button>
   </ng-template>
   <ng-template #reverso>
     <img src="../../assets/reverso.jpg" class="card-img-top">

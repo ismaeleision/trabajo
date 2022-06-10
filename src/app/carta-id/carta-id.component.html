@@ -1,70 +1,33 @@
-<div class="container mt-5">
+<div class="container">
 
-  <div class="row">
-    <h2 class="text-danger bg-light text-center p-3 ms-2 border border-danger border-3 fw-bold">{{Carta.name}}</h2>
+  <div class="row my-3 ">
+    <div class="col-10 mx-auto">
+      <h2 class="text-danger bg-light text-center p-3 border border-danger border-3 fw-bold">{{Carta.name}}</h2>
+    </div>
   </div>
 
-  <!--Imagen Carta-->
-  <div class="row mt-3">
-    <div class="col-2" style="width:18rem;">
+  <div class="row">
+    <!--Imagen Carta-->
+    <div class="col-7 col-xl-3 col-lg-4 mx-auto">
       <img *ngIf="Carta.image_uris; else reverso" src="{{Carta.image_uris.normal}}" class="card-img-top">
     </div>
-    <!--Nombre Carta-->
-    <div class="col-8 mt-2 ">
-      <div class="row my-3">
-        <!--Precios-->
-        <div class="col  shadow bg-body rounded text-center border border-danger border-3 h-75">
-          <p class="pt-3 fw-bold text-danger">Precios</p>
-          <p *ngIf="Carta.prices.eur; else precio">
-            {{Carta.prices.eur}}€
-          </p>
-          <p *ngIf="Carta.prices.eur_foil; else precio">
-            Foil {{Carta.prices.eur_foil}}€
-          </p>
-          <p *ngIf="Carta.prices.eur_foil; else precio">
-            USD {{Carta.prices.usd}}$
-          </p>
-          <p *ngIf="Carta.prices.eur_foil; else precio">
-            USD Foil {{Carta.prices.usd_foil}}$
-          </p>
-        </div>
-
-        <!--Texto Carta-->
-        <div class="col-8">
-          <div class="card-text shadow bg-body rounded text-center p-3 border border-danger border-3">
-            <p class="fw-bold text-danger">Texto Carta</p>
-            {{Carta.oracle_text}}
-          </div>
-        </div>
-      </div>
-      <div class="row ">
-        <div class="col p-3  shadow bg-body rounded text-center border border-danger border-3 h-75">
-          Ver más cartas de la colección<strong> {{Carta.set_name}}</strong>:
-          <div class="col-2 mx-2 text-center btn btn-light btn-outline-dark border-4 rounded-pill" routerLink="/set/{{Carta.set}}/0">
-            click aquí
-          </div>
-        </div>
-      </div>
-      <div class="row bg-light border border-danger border-3 p-3">
-        <p class="fw-bold text-danger text-center">FORMATOS</p>
-        <div class="col-3">Standard-{{Carta.legalities.standard}}</div>
-        <div class="col-3">Historic-{{Carta.legalities.historic}}</div>
-        <div class="col-3">Pioneer-{{Carta.legalities.pioneer}}</div>
-        <div class="col-3">Modern-{{Carta.legalities.modern}}</div>
-        <div class="col-3">Legacy-{{Carta.legalities.legacy}}</div>
-        <div class="col-3">Pauper-{{Carta.legalities.pauper}}</div>
-        <div class="col-3">Vintage-{{Carta.legalities.vintage}}</div>
-        <div class="col-3">Commander-{{Carta.legalities.commander}}</div>
-      </div>
+    <!--Precios-->
+    <div class="col-4 shadow bg-body rounded text-center border border-danger border-3 mx-auto">
+      <h4 class="pt-3 fw-bold text-danger">Precios</h4>
+      <ul class="list-group">
+        <li class="list-group-item" *ngIf="Carta.prices.eur; else precio">{{Carta.prices.eur}}€</li>
+        <li class="list-group-item" *ngIf="Carta.prices.eur_foil; else precio"> Foil {{Carta.prices.eur_foil}}€</li>
+        <li class="list-group-item" *ngIf="Carta.prices.usd; else precio"> USD {{Carta.prices.usd}}$</li>
+        <li class="list-group-item" *ngIf="Carta.prices.usd_foil; else precio">USD Foil {{Carta.prices.usd_foil}}$</li>
+      </ul>
     </div>
   </div>
 
   <!--Botones-->
   <div class="row m-3">
-    <!--Formato jugable-->
-
-    <div class="col-2 mx-2 text-center btn btn-dark btn-outline-light border-4 rounded-pill" data-bs-toggle="modal"
-      data-bs-target="#CrearMazo">
+    <!--Añadir-->
+    <div class="col text-center btn btn-dark btn-outline-light border-4 rounded-pill" data-bs-toggle="modal" data-bs-target="#CrearMazo"
+      *ngIf="this.sesion.retrieve('usuario'); else logueo;">
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bookmark-plus" viewBox="0 0 16 16">
         <path
           d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z" />
@@ -72,7 +35,8 @@
       </svg>
       AÑADIR
     </div>
-    <div class="col-2 mx-2 text-center btn btn-dark btn-outline-light border-4 rounded-pill" (click)="comprar()" data-bs-toggle="tooltip"
+    <!--Comprar Carta-->
+    <div class="col text-center btn btn-dark btn-outline-light border-4 rounded-pill" (click)="comprar()" data-bs-toggle="tooltip"
       data-bs-placement="left" title="Comprar carta">
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
         <path
@@ -80,7 +44,32 @@
       </svg>
       COMPRAR
     </div>
-    <div class="col-2 mx-2 text-center btn btn-dark btn-outline-light border-4 rounded-pill" (click)="volver()" data-bs-toggle="tooltip"
+    <!--Texto Carta-->
+    <div class="col text-center btn btn-dark btn-outline-light border-4 rounded-pill" data-bs-toggle="collapse" href="#info" role="button"
+      aria-expanded="false" aria-controls="info">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+        <path
+          d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+      </svg>
+      INFO
+    </div>
+    <!--Formatos-->
+    <div class="col text-center btn btn-dark btn-outline-light border-4 rounded-pill " data-bs-toggle="collapse" href="#formatos"
+      role="button" aria-expanded="false" aria-controls="formatos">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-ruled" viewBox="0 0 16 16">
+        <path
+          d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm2-1a1 1 0 0 0-1 1v4h10V2a1 1 0 0 0-1-1H4zm9 6H6v2h7V7zm0 3H6v2h7v-2zm0 3H6v2h6a1 1 0 0 0 1-1v-1zm-8 2v-2H3v1a1 1 0 0 0 1 1h1zm-2-3h2v-2H3v2zm0-3h2V7H3v2z" />
+      </svg>
+      FORMATOS
+    </div>
+    <!--Edicion-->
+    <div class="col text-center btn btn-dark btn-outline-light border-4 rounded-pill" data-bs-toggle="collapse" href="#edicion"
+      role="button" aria-expanded="false" aria-controls="edicion">
+      Más Cartas de: <strong>{{Carta.set_name}}</strong>
+    </div>
+    <!--Volver-->
+    <div class="col text-center btn btn-dark btn-outline-light border-4 rounded-pill" (click)="volver()" data-bs-toggle="tooltip"
       data-bs-placement="left" title="Volver a la pagina anterior">
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-return-left"
         viewBox="0 0 16 16">
@@ -91,16 +80,50 @@
     </div>
   </div>
 
+  <!--Collapses-->
+  <div class="collapse" id="formatos">
+    <ul class="list-group">
+      <li class="list-group-item">Standard {{Carta.legalities.standard}}</li>
+      <li class="list-group-item">Historic {{Carta.legalities.historic}}</li>
+      <li class="list-group-item">Pioneer {{Carta.legalities.pioneer}}</li>
+      <li class="list-group-item">Modern {{Carta.legalities.modern}}</li>
+      <li class="list-group-item">Legacy {{Carta.legalities.legacy}}</li>
+      <li class="list-group-item">Pauper {{Carta.legalities.pauper}}</li>
+      <li class="list-group-item">Vintage {{Carta.legalities.vintage}}</li>
+      <li class="list-group-item">Commander {{Carta.legalities.commander}}</li>
+    </ul>
+  </div>
+  <div class="collapse" id="info">
+    <!--Texto Carta-->
+    <div class="col-10 mx-auto mb-3">
+      <div class="card-text shadow bg-body rounded text-center p-3 border border-danger border-3">
+        <p class="fw-bold text-danger">Texto Carta</p>
+        {{Carta.oracle_text}}
+      </div>
+    </div>
+  </div>
+
+
   <!--Si el precio es nulo pone un N/A en su lugar-->
   <ng-template #precio>
-    <p #precio>Sin registro</p>
+    <li class="list-group-item">Sin registro</li>
   </ng-template>
   <ng-template #reverso>
     <img src="../../assets/reverso.jpg" class="card-img-top">
   </ng-template>
+  <ng-template #logueo>
+    <div class="col text-center btn btn-dark btn-outline-light border-4 rounded-pill" data-bs-toggle="modal" data-bs-target="#Loguin">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bookmark-plus" viewBox="0 0 16 16">
+        <path
+          d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z" />
+        <path d="M8 4a.5.5 0 0 1 .5.5V6H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V7H6a.5.5 0 0 1 0-1h1.5V4.5A.5.5 0 0 1 8 4z" />
+      </svg>
+      AÑADIR
+    </div>
+  </ng-template>
 
 
-  <!-- Modal -->
+  <!-- Modal Añadir Carta Mazo-->
   <div class="modal fade" id="CrearMazo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -114,6 +137,32 @@
               {{mazo.nombre}}
             </li>
           </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Loguin-->
+  <div class="modal fade" id="Loguin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="row pt-2">
+            <h4 class="text-danger">Logueate para acceder si ya tienes cuenta</h4>
+            <div class="col-3 mx-auto">
+              <a href="/login">
+                <div class="btn btn-dark mx-auto">Login</div>
+              </a>
+            </div>
+          </div>
+          <div class="row mt-3">
+            <h4 class="text-danger">O registrate</h4>
+            <div class="col-3 mx-auto">
+              <a href="/register">
+                <div class="btn btn-dark">Registro</div>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>

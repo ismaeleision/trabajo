@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { CrudService } from '../service/crud.service';
 import { Location } from '@angular/common';
 import {SessionStorageService} from 'ngx-webstorage';
-
+import { Router} from '@angular/router';
 
 @Component({
   selector: 'app-carta-id',
@@ -17,7 +17,7 @@ export class CartaIdComponent implements OnInit {
   grafico:any = [];
 
 
-  constructor(private route: ActivatedRoute, private crudService: CrudService, private location: Location, public sesion: SessionStorageService) { }
+  constructor(private route: ActivatedRoute, private crudService: CrudService, private location: Location, public sesion: SessionStorageService, private router: Router) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.url[2].toString();
@@ -77,5 +77,19 @@ console.log("XD no esta hecho, vuelve a intentarlo más tarde");
     this.crudService.anadirCartaMazo(id, this.Carta).subscribe(res => {
       console.log(res);
     });    
+  }
+  limpiar(ruta:String){
+    if(ruta=="login"){
+      this.ngOnInit();
+      this.router.navigateByUrl('/', {skipLocationChange: true}).then(() =>
+      this.router.navigate(['/login']));
+    }else if(ruta=="register"){
+      this.ngOnInit();
+      this.router.navigateByUrl('/', {skipLocationChange: true}).then(() =>
+      this.router.navigate(['/register']));
+    }
+   
+  // if you need to scroll back to top, here is the right place
+   //window.scrollTo(0, 0);
   }
 }
