@@ -1,28 +1,27 @@
 <div class="container text-center">
-  <div class="row mt-5 bg-light border border-danger border-3">
+  <div class="row mt-5 bg-dark border border-danger border-3 w-75 mx-auto">
     <form class="custom-form" method="post">
-      <h1 class="text-danger p-3 text-center">REGISTRO</h1>
+      <h1 class="text-light p-3 text-center">REGISTRO</h1>
       <div class="col mt-3">
-        <input class="form-control border border-4 border-dark" type="text" name="nombre" placeholder="Nombre" />
+        <input class="form-control w-50 mx-auto" type="text" name="nombre" placeholder="Nombre" />
       </div>
       <div class="col mt-3">
-        <input class="form-control border border-4 border-dark" type="text" name="Apellidos" placeholder="Apellidos" />
+        <input class="form-control w-50 mx-auto" type="text" name="Apellidos" placeholder="Apellidos" />
       </div>
       <div class="col mt-3">
-        <input class="form-control border border-4 border-dark" type="email" [(ngModel)]="email" name="email" placeholder="Email"
+        <input class="form-control w-50 mx-auto" type="email" [(ngModel)]="email" name="email" placeholder="Email" required="required" />
+      </div>
+      <div class="col mt-3">
+        <input class="form-control w-50 mx-auto" type="password" [(ngModel)]="password" name="password" placeholder="Contraseña"
           required="required" />
       </div>
       <div class="col mt-3">
-        <input class="form-control border border-4 border-dark" type="password" [(ngModel)]="password" name="password"
-          placeholder="Contraseña" required="required" />
-      </div>
-      <div class="col mt-3">
-        <button class="btn btn-light btn-outline-dark border border-3 border-dark" type="submit" (click)="register()" routerLink="/">
+        <button class="btn btn-danger border border-3 border-dark" type="submit" (click)="register()" routerLink="/">
           Registro
         </button>
       </div>
       <div class="col m-4">
-        <button class="btn btn-light btn-outline-dark border border-3 border-dark" routerLink="/login">¿Tienes cuenta?
+        <button class="btn btn-danger border border-3 border-dark" routerLink="/login">¿Tienes cuenta?
           Logueate</button>
       </div>
     </form>

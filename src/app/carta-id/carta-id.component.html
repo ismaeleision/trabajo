@@ -19,6 +19,7 @@
         <li class="list-group-item" *ngIf="Carta.prices.eur_foil; else precio"> Foil {{Carta.prices.eur_foil}}€</li>
         <li class="list-group-item" *ngIf="Carta.prices.usd; else precio"> USD {{Carta.prices.usd}}$</li>
         <li class="list-group-item" *ngIf="Carta.prices.usd_foil; else precio">USD Foil {{Carta.prices.usd_foil}}$</li>
+        <li class="list-group-item" *ngIf="Carta.prices.tix; else precio">Tix {{Carta.prices.tix}}</li>
       </ul>
     </div>
   </div>
@@ -26,7 +27,7 @@
   <!--Botones-->
   <div class="row m-3">
     <!--Añadir-->
-    <div class="col text-center btn btn-dark btn-outline-light border-4 rounded-pill" data-bs-toggle="modal" data-bs-target="#CrearMazo"
+    <div class="col text-center btn btn-dark btn-outline-light border-4 rounded-pill " data-bs-toggle="modal" data-bs-target="#CrearMazo"
       *ngIf="this.sesion.retrieve('usuario'); else logueo;">
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bookmark-plus" viewBox="0 0 16 16">
         <path
@@ -82,22 +83,44 @@
 
   <!--Collapses-->
   <div class="collapse" id="formatos">
-    <ul class="list-group">
-      <li class="list-group-item">Standard {{Carta.legalities.standard}}</li>
-      <li class="list-group-item">Historic {{Carta.legalities.historic}}</li>
-      <li class="list-group-item">Pioneer {{Carta.legalities.pioneer}}</li>
-      <li class="list-group-item">Modern {{Carta.legalities.modern}}</li>
-      <li class="list-group-item">Legacy {{Carta.legalities.legacy}}</li>
-      <li class="list-group-item">Pauper {{Carta.legalities.pauper}}</li>
-      <li class="list-group-item">Vintage {{Carta.legalities.vintage}}</li>
-      <li class="list-group-item">Commander {{Carta.legalities.commander}}</li>
-    </ul>
+    <div class="card-text shadow bg-body rounded text-center p-2 mb-3 border border-danger border-3">
+      <h5 class="fw-bold text-danger">Formatos</h5>
+      <div class="row">
+        <div class="col-3">Standard->
+          <strong *ngIf="Carta.legalities.standard=='legal'; else not_legal;">Permitido</strong>
+        </div>
+        <div class="col-3">Commander->
+          <strong *ngIf="Carta.legalities.commander=='legal'; else not_legal;">Permitido</strong>
+        </div>
+        <div class="col-3">Pioneer->
+          <strong *ngIf="Carta.legalities.pioneer=='legal'; else not_legal;">Permitido</strong>
+        </div>
+        <div class="col-3">Modern->
+          <strong *ngIf="Carta.legalities.modern=='legal'; else not_legal;">Permitido</strong>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-3">Legacy->
+          <strong *ngIf="Carta.legalities.legacy=='legal'; else not_legal;">Permitido</strong>
+        </div>
+        <div class="col-3">Pauper->
+          <strong *ngIf="Carta.legalities.pauper=='legal'; else not_legal;">Permitido</strong>
+        </div>
+        <div class="col-3">Vintage->
+          <strong *ngIf="Carta.legalities.vintage=='legal'; else not_legal;">Permitido</strong>
+        </div>
+        <div class="col-3">Historic->
+          <strong *ngIf="Carta.legalities.historic=='legal'; else not_legal;">Permitido</strong>
+        </div>
+      </div>
+    </div>
   </div>
+
+  <!--Texto Carta-->
   <div class="collapse" id="info">
-    <!--Texto Carta-->
     <div class="col-10 mx-auto mb-3">
       <div class="card-text shadow bg-body rounded text-center p-3 border border-danger border-3">
-        <p class="fw-bold text-danger">Texto Carta</p>
+        <h5 class="fw-bold text-danger">Texto Carta</h5>
         {{Carta.oracle_text}}
       </div>
     </div>
@@ -110,6 +133,9 @@
   </ng-template>
   <ng-template #reverso>
     <img src="../../assets/reverso.jpg" class="card-img-top">
+  </ng-template>
+  <ng-template #not_legal>
+    <strong>No Permitido</strong>
   </ng-template>
   <ng-template #logueo>
     <div class="col text-center btn btn-dark btn-outline-light border-4 rounded-pill" data-bs-toggle="modal" data-bs-target="#Loguin">
