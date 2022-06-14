@@ -31,7 +31,6 @@ export class CartaIdComponent implements OnInit {
         this.grafico = this.grafico[1];
         this.grafico = Object.entries(this.grafico).map(([type, value]) => ({type, value}));
         this.grafico = this.grafico[1];
-       console.log(this.grafico);
 
         let date = new Date;
         let day = date.getUTCDate();
@@ -39,7 +38,7 @@ export class CartaIdComponent implements OnInit {
         let dia = day+"/"+month;
         let values= Object.values(res);
         //Si coincide la clave con precios es la posicion donde estan los precios
-          if ( values[0].length == 0  || dia != values[0][0].precio.date){
+          if ( values[0].length == 0  || dia != values[0][4].precio.date){
               this.crudService.getPrecio(this.Carta.id).subscribe(res => {
                 //Parte los valores por un lado y las claves por otro para poder manipular el objeto que recogemos de la peticion https
                 let values= Object.values(res);

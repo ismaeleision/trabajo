@@ -20,7 +20,6 @@ export class LoginComponent {
       this.sesion.store('token', data.token);
       this.sesion.store('usuario', data.email);
       this.sesion.store('mazos', data.mazos);
-      console.log(data);
     });
   }
 

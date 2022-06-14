@@ -1,9 +1,9 @@
 <div class="container">
   <!--Informacion del mazo, botones...-->
   <div class="row bg-light border border-3 border-danger mt-3 p-3">
-    <div class="col text-center fw-bold">
+    <h3 class="col text-center fw-bold text-uppercase">
       {{this.Mazo.nombre}}
-    </div>
+    </h3>
   </div>
 
   <!--ForEach para las cartas y boton para eliminar y quizas modificar cantidad-->
@@ -22,7 +22,7 @@
 
   <div class="row bg-light border border-3 border-danger mt-3 p-3">
     <div class="col text-center">
-      Número de cartas en el mazo: 3 cartas. <br>
+      Número de cartas en el mazo: {{Mazo.cartas.length}} cartas. <br>
       <div class="btn btn-dark" (click)="borrarMazo()">
         Borrar Mazo
       </div>
